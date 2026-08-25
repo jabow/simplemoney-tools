@@ -18,12 +18,15 @@
   /* Surfaces — a lighter, warmer dark theme (slate rather than near-black),
      with more separation between page background and card background so
      content areas read as distinct, elevated surfaces */
-  --bg: #12161d;
-  --bg-alt: #181d26;
-  --card-bg: #1e2530;
-  --card-bg-raised: #262e3b;
-  --border: #2b3341;
-  --border-strong: #3a4457;
+  --bg: #13171e;
+  --bg-alt: #191e27;
+  --card-bg: #1f2630;
+  --card-bg-raised: #272f3c;
+  /* Borders as low-alpha white rather than a fixed hex — reads as a soft
+     hairline on every surface (bg, card, raised card) instead of a hard
+     edge that only matches one of them */
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.13);
 
   /* Text — slightly softer white, and a lighter muted tone for better
      everyday readability at larger body sizes */
@@ -37,11 +40,13 @@
   --soon: #aab5c6;
   --warn: #e6bd5e;
 
-  --shadow: 0 1px 2px rgba(8, 10, 14, 0.25), 0 10px 28px rgba(8, 10, 14, 0.28);
-  --shadow-lg: 0 20px 46px rgba(8, 10, 14, 0.38);
-  --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 22px;
+  /* Softer, larger, lower-opacity shadows — diffuse elevation rather than
+     a hard drop shadow */
+  --shadow: 0 1px 2px rgba(6, 8, 12, 0.16), 0 14px 34px rgba(6, 8, 12, 0.2);
+  --shadow-lg: 0 26px 64px rgba(6, 8, 12, 0.32);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
   --max-width: 1160px;
 
   --font-heading: "Sora", "Segoe UI", sans-serif;
@@ -105,6 +110,7 @@ h4 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
@@ -141,20 +147,22 @@ svg {
 }
 
 main section {
-  padding: 6.5rem 0;
+  padding: 7.5rem 0;
 }
 
 main section.tight {
-  padding: 4.5rem 0;
+  padding: 5.5rem 0;
 }
 
-main section + section {
-  border-top: 1px solid var(--border);
+/* Sections are separated by generous whitespace and, where a section is
+   marked .section-alt, a subtly shifted background — not hairline rules */
+main section.section-alt {
+  background-color: var(--bg-alt);
 }
 
 .section-head {
   max-width: 640px;
-  margin: 0 0 3.5rem;
+  margin: 0 0 4rem;
 }
 
 .section-head.center {
@@ -502,8 +510,23 @@ main section + section {
 /* ---- Hero ------------------------------------------------------------- */
 
 .hero {
-  padding: 5rem 0 4rem;
+  padding: 6rem 0 5rem;
   overflow: hidden;
+  position: relative;
+}
+
+/* Soft ambient glow behind the hero — ombré atmosphere rather than a flat
+   background, in the vein of Linear/Arc marketing pages */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -15% 5% auto 5%;
+  height: 75%;
+  background: radial-gradient(ellipse at 40% 30%, rgba(77, 215, 164, 0.14), transparent 65%),
+    radial-gradient(ellipse at 75% 55%, rgba(92, 182, 234, 0.12), transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero-grid {
@@ -623,22 +646,34 @@ main section + section {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 0.9rem;
-  background-color: var(--bg);
-  border-bottom: 1px solid var(--border-strong);
+  padding: 0.75rem 1rem;
+  background: linear-gradient(180deg, var(--card-bg-raised), var(--bg-alt));
+  border-bottom: 1px solid var(--border);
 }
 
 .frame-dots {
   display: flex;
-  gap: 0.35rem;
+  gap: 0.4rem;
   flex-shrink: 0;
 }
 
 .frame-dots span {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.62rem;
+  height: 0.62rem;
   border-radius: 999px;
-  background-color: var(--text-faint);
+  opacity: 0.55;
+}
+
+.frame-dots span:nth-child(1) {
+  background-color: #ec6a5e;
+}
+
+.frame-dots span:nth-child(2) {
+  background-color: #e6bd5e;
+}
+
+.frame-dots span:nth-child(3) {
+  background-color: #4dd7a4;
 }
 
 .frame-address {
@@ -686,7 +721,7 @@ main section + section {
 
 .spotlight-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -703,23 +738,73 @@ main section + section {
 
 .spotlight-visual {
   position: relative;
+  padding: 1.5rem;
 }
 
 .spotlight-visual::before {
   content: "";
   position: absolute;
-  inset: -15% -15% auto auto;
-  width: 55%;
-  height: 55%;
+  inset: -10% -10% auto auto;
+  width: 70%;
+  height: 70%;
   background: var(--gradient);
-  filter: blur(80px);
-  opacity: 0.22;
+  filter: blur(90px);
+  opacity: 0.26;
   z-index: -1;
   border-radius: 50%;
 }
 
 .spotlight-visual .browser-frame {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(77, 215, 164, 0.12);
+}
+
+.spotlight-callout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--card-bg-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem 0.5rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  animation: none;
+}
+
+.spotlight-callout .dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: var(--gradient);
+  color: var(--accent-contrast);
+  flex-shrink: 0;
+}
+
+.spotlight-callout .dot svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.spotlight-callout.callout-top {
+  top: -0.5rem;
+  left: 2rem;
+}
+
+.spotlight-callout.callout-bottom {
+  bottom: -0.5rem;
+  right: 2rem;
+}
+
+@media (max-width: 640px) {
+  .spotlight-callout {
+    display: none;
+  }
 }
 
 .spotlight-copy .eyebrow-row {
@@ -876,7 +961,7 @@ main section + section {
 
 .trust-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
@@ -1006,7 +1091,7 @@ main section + section {
 
 .card-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
@@ -1022,14 +1107,14 @@ main section + section {
 }
 
 .tool-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
   box-shadow: var(--shadow-lg);
 }
 
 .tool-card-media {
   position: relative;
-  height: 11.5rem;
+  height: 13rem;
   background-color: var(--bg-alt);
   overflow: hidden;
 }
@@ -1232,7 +1317,7 @@ main section + section {
 
 .compare-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
@@ -1352,7 +1437,7 @@ main section + section {
 }
 
 .tutorial-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
 }
 
@@ -1564,7 +1649,7 @@ main section + section {
 
 .social-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
@@ -1583,7 +1668,7 @@ main section + section {
 }
 
 .social-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
 }
 
@@ -1610,6 +1695,89 @@ main section + section {
 .social-card .handle {
   color: var(--text-faint);
   font-size: 0.85rem;
+}
+
+/* ---- Founder ---------------------------------------------------------------- */
+
+.founder-card {
+  max-width: 46rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 700px) {
+  .founder-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.75rem;
+  }
+}
+
+.founder-avatar {
+  flex-shrink: 0;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #eef4f0;
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.founder-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.founder-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.15rem;
+}
+
+.founder-title {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+
+.founder-bio {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.founder-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.founder-link:hover {
+  text-decoration: underline;
+}
+
+.founder-link svg {
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 /* ---- Newsletter ----------------------------------------------------------- */
@@ -2143,11 +2311,15 @@ main section + section {
 
 @media (max-width: 640px) {
   main section {
+    padding: 4.5rem 0;
+  }
+
+  main section.tight {
     padding: 3.5rem 0;
   }
 
   .hero {
-    padding: 3rem 0 2.5rem;
+    padding: 3.5rem 0 3rem;
   }
 
   .newsletter {
