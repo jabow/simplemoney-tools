@@ -624,8 +624,8 @@ main section + section {
   align-items: center;
   gap: 0.6rem;
   padding: 0.65rem 0.9rem;
-  background-color: var(--card-bg-raised);
-  border-bottom: 1px solid var(--border);
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .frame-dots {
@@ -638,7 +638,7 @@ main section + section {
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 999px;
-  background-color: var(--border-strong);
+  background-color: var(--text-faint);
 }
 
 .frame-address {
