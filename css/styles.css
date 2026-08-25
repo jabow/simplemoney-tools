@@ -20,7 +20,7 @@
   /* Surfaces — deep navy rather than slate, with a deliberate step between
      page background, alternate sections and card background */
   --bg: #07111f;
-  --bg-alt: #0b1728;
+  --bg-alt: #10213a;
   --card-bg: #101d31;
   --card-bg-raised: #16243a;
   --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
@@ -519,9 +519,14 @@ main section.section-alt {
    in the vein of Linear/Raycast/Arc/Vercel marketing pages ---------------- */
 
 .hero {
-  max-width: 1300px;
+  max-width: 1640px;
   padding: 8.5rem 0 3rem;
   position: relative;
+  /* The showcase now fills almost the full width at common desktop sizes,
+     leaving little margin for the edge-hanging callout chips and glows to
+     bleed into — clip it here rather than on html/body, since that would
+     break position:sticky on the (unrelated, sibling) site header */
+  overflow-x: hidden;
 }
 
 /* Soft ambient glow behind the hero — ombré atmosphere rather than a flat
@@ -615,9 +620,9 @@ main section.section-alt {
    "stage" so it reads as a distinct block from the hero copy above it */
 .hero-showcase {
   position: relative;
-  max-width: 78rem;
-  margin: 4.5rem auto 0;
-  padding: 3rem 3rem 2.5rem;
+  max-width: 104rem;
+  margin: 5rem auto 0;
+  padding: 3.5rem 3.5rem 3rem;
   background-color: var(--bg-alt);
   border-radius: var(--radius-lg);
 }
@@ -629,7 +634,8 @@ main section.section-alt {
 }
 
 .hero-showcase .browser-frame {
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(77, 212, 191, 0.12);
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(77, 212, 191, 0.16);
 }
 
 .hero-showcase-caption {
@@ -637,9 +643,181 @@ main section.section-alt {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hero-showcase-caption .text-faint {
   color: var(--text-faint);
+  font-weight: 400;
+}
+
+/* Pinned badge floating above the mockup frame */
+.hero-pro-badge {
+  position: absolute;
+  top: -1.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: rgba(11, 20, 35, 0.94);
+  border: 1px solid rgba(77, 212, 191, 0.4);
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  box-shadow: var(--shadow-lg);
+  white-space: nowrap;
+}
+
+/* Stage wraps just the screenshot so overlaid widgets can be positioned
+   with percentages that match the image's own box, not the frame chrome */
+.mockup-stage {
+  position: relative;
+  line-height: 0;
+}
+
+.mockup-widget {
+  position: absolute;
+  line-height: 1.4;
+  background-color: rgba(9, 16, 28, 0.74);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.mockup-widget-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-faint);
+  margin-bottom: 0.8rem;
+}
+
+.mockup-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 6px;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.mockup-logo-chip.is-t212 {
+  background-color: #10b981;
+}
+
+.mockup-logo-chip.is-strava {
+  background-color: #fc4c02;
+}
+
+.mockup-logo-chip svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.mockup-portfolio {
+  left: 1.5%;
+  bottom: 16%;
+  width: 32%;
+  min-width: 230px;
+}
+
+.mockup-value {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 0.2rem;
+}
+
+.mockup-change {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #7ee2b8;
+  margin: 0 0 0.7rem;
+}
+
+.mockup-change svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
+}
+
+.mockup-chart,
+.mockup-route {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mockup-strava {
+  right: 1.5%;
+  top: 23%;
+  width: 29%;
+  min-width: 210px;
+}
+
+.mockup-activity-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+
+.mockup-stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.mockup-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mockup-stat-value {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.mockup-stat-label {
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .mockup-widget,
+  .hero-pro-badge {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -747,7 +925,7 @@ main section.section-alt {
   display: grid;
   /* The screenshot column is deliberately much wider than the copy column
      — the product, not the paragraph, should sell this section */
-  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-columns: 0.62fr 1.38fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -885,6 +1063,12 @@ main section.section-alt {
   transform: translateY(-50%);
 }
 
+.spotlight-callout.callout-mr {
+  top: 46%;
+  right: -2.25rem;
+  transform: translateY(-50%);
+}
+
 @media (max-width: 900px) {
   .spotlight-callout {
     display: none;
@@ -957,6 +1141,146 @@ main section.section-alt {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+/* ---- Pro showcase (Trading 212 + Strava, the aspirational hero product) --- */
+
+.pro-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 60rem;
+  margin: 0 auto 3.5rem;
+}
+
+@media (max-width: 760px) {
+  .pro-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pro-widget-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pro-widget-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+
+.pro-widget-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.pro-widget-head .mockup-logo-chip {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.pro-widget-head .mockup-logo-chip svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.pro-widget-head h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+}
+
+.pro-widget-sub {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+.pro-widget-value {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.pro-widget-change {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.pro-widget-chart {
+  display: block;
+  width: 100%;
+  height: 6rem;
+}
+
+.pro-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 940px) {
+  .pro-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .pro-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pro-feature-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pro-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.pro-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(77, 212, 191, 0.12);
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.pro-feature-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.pro-feature-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.pro-feature-card p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 /* ---- Ecosystem (how the tools connect) ------------------------------------ */
@@ -1131,7 +1455,8 @@ main section.section-alt {
 .roadmap-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 0.82fr 1.36fr 0.82fr;
+  align-items: start;
 }
 
 @media (max-width: 860px) {
@@ -1156,15 +1481,29 @@ main section.section-alt {
 }
 
 .roadmap-col.is-now {
-  border-top-color: var(--accent);
+  border-top-color: var(--accent-2);
 }
 
-.roadmap-col.is-next {
-  border-top-color: var(--accent-2);
+.roadmap-col.is-featured {
+  border-top-color: var(--accent);
+  border-color: rgba(77, 212, 191, 0.4);
+  background: linear-gradient(180deg, rgba(77, 212, 191, 0.1), var(--card-bg) 45%);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(77, 212, 191, 0.16);
+  padding: 2.25rem 2rem;
 }
 
 .roadmap-col.is-future {
   border-top-color: var(--soon);
+}
+
+@media (min-width: 861px) {
+  .roadmap-col.is-featured {
+    transform: scale(1.045);
+  }
+
+  .roadmap-col.is-featured:hover {
+    transform: scale(1.045) translateY(-4px);
+  }
 }
 
 .roadmap-col-head {
@@ -1182,13 +1521,17 @@ main section.section-alt {
 }
 
 .roadmap-col.is-now .roadmap-dot {
+  background-color: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
+}
+
+.roadmap-col.is-featured .roadmap-dot {
   background-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(77, 212, 191, 0.18);
 }
 
-.roadmap-col.is-next .roadmap-dot {
-  background-color: var(--accent-2);
-  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
+.roadmap-col.is-featured .roadmap-col-head h3 {
+  color: var(--accent);
 }
 
 .roadmap-col.is-future .roadmap-dot {
@@ -1227,6 +1570,10 @@ main section.section-alt {
 }
 
 .roadmap-col.is-now .roadmap-list li svg {
+  color: var(--accent-2);
+}
+
+.roadmap-col.is-featured .roadmap-list li svg {
   color: var(--accent);
 }
 
