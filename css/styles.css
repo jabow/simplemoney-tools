@@ -15,18 +15,19 @@
   --accent-contrast: #07231a;
   --gradient: linear-gradient(135deg, var(--accent-2), var(--accent));
 
-  /* Surfaces — a lighter, warmer dark theme (slate rather than near-black),
-     with more separation between page background and card background so
-     content areas read as distinct, elevated surfaces */
-  --bg: #13171e;
-  --bg-alt: #191e27;
-  --card-bg: #1f2630;
-  --card-bg-raised: #272f3c;
+  /* Surfaces — a lighter, warmer dark theme (slate rather than near-black).
+     Each step (bg -> bg-alt -> card-bg -> card-bg-raised) is a deliberate,
+     visible increment so page background, alternate sections and cards
+     are each clearly distinct surfaces rather than blurring together */
+  --bg: #151a21;
+  --bg-alt: #1c222b;
+  --card-bg: #232b37;
+  --card-bg-raised: #2c3644;
   /* Borders as low-alpha white rather than a fixed hex — reads as a soft
      hairline on every surface (bg, card, raised card) instead of a hard
      edge that only matches one of them */
   --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.13);
+  --border-strong: rgba(255, 255, 255, 0.14);
 
   /* Text — slightly softer white, and a lighter muted tone for better
      everyday readability at larger body sizes */
@@ -41,12 +42,14 @@
   --warn: #e6bd5e;
 
   /* Softer, larger, lower-opacity shadows — diffuse elevation rather than
-     a hard drop shadow */
-  --shadow: 0 1px 2px rgba(6, 8, 12, 0.16), 0 14px 34px rgba(6, 8, 12, 0.2);
-  --shadow-lg: 0 26px 64px rgba(6, 8, 12, 0.32);
+     a hard drop shadow. Each includes a 1px inset top highlight, giving
+     every card a faint bevel/depth without an extra visible border */
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 1px 2px rgba(6, 8, 12, 0.14),
+    0 16px 38px rgba(6, 8, 12, 0.22);
+  --shadow-lg: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 70px rgba(6, 8, 12, 0.34);
   --radius-sm: 10px;
-  --radius: 16px;
-  --radius-lg: 24px;
+  --radius: 18px;
+  --radius-lg: 26px;
   --max-width: 1160px;
 
   --font-heading: "Sora", "Segoe UI", sans-serif;
@@ -147,11 +150,11 @@ svg {
 }
 
 main section {
-  padding: 7.5rem 0;
+  padding: 8.5rem 0;
 }
 
 main section.tight {
-  padding: 5.5rem 0;
+  padding: 6rem 0;
 }
 
 /* Sections are separated by generous whitespace and, where a section is
@@ -161,8 +164,8 @@ main section.section-alt {
 }
 
 .section-head {
-  max-width: 640px;
-  margin: 0 0 4rem;
+  max-width: 580px;
+  margin: 0 0 4.5rem;
 }
 
 .section-head.center {
@@ -183,14 +186,18 @@ main section.section-alt {
 }
 
 .section-title {
-  font-size: clamp(1.7rem, 3vw, 2.35rem);
-  margin: 0 0 0.9rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
 }
 
 .section-lead {
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.7;
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .text-muted {
@@ -507,59 +514,60 @@ main section.section-alt {
   }
 }
 
-/* ---- Hero ------------------------------------------------------------- */
+/* ---- Hero — centered headline over a large full-width product showcase,
+   in the vein of Linear/Raycast/Arc/Vercel marketing pages ---------------- */
 
 .hero {
-  padding: 6rem 0 5rem;
-  overflow: hidden;
+  padding: 7rem 0 2rem;
   position: relative;
 }
 
 /* Soft ambient glow behind the hero — ombré atmosphere rather than a flat
-   background, in the vein of Linear/Arc marketing pages */
+   background */
 .hero::before {
   content: "";
   position: absolute;
   inset: -15% 5% auto 5%;
   height: 75%;
-  background: radial-gradient(ellipse at 40% 30%, rgba(77, 215, 164, 0.14), transparent 65%),
-    radial-gradient(ellipse at 75% 55%, rgba(92, 182, 234, 0.12), transparent 60%);
-  filter: blur(40px);
+  background: radial-gradient(ellipse at 35% 20%, rgba(77, 215, 164, 0.16), transparent 62%),
+    radial-gradient(ellipse at 70% 40%, rgba(92, 182, 234, 0.13), transparent 58%);
+  filter: blur(50px);
   z-index: -1;
   pointer-events: none;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 3rem;
-  align-items: center;
+.hero-copy {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 4.4vw, 3.2rem);
-  letter-spacing: -0.01em;
-  margin-bottom: 1.1rem;
+  font-size: clamp(2.4rem, 5.2vw, 3.75rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
 }
 
 .hero-lead {
   color: var(--text-muted);
   font-size: 1.15rem;
   line-height: 1.7;
-  max-width: 34rem;
-  margin-bottom: 1.75rem;
+  max-width: 32rem;
+  margin: 0 auto 2rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .trust-line {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   color: var(--text-faint);
   font-size: 0.9rem;
@@ -573,62 +581,46 @@ main section.section-alt {
   flex-shrink: 0;
 }
 
-.hero-visual {
+/* Full-width product showcase beneath the headline — the largest, most
+   prominent screenshot on the page */
+.hero-showcase {
   position: relative;
-}
-
-.hero-visual-card {
-  display: block;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 0.9rem;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.hero-visual-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent);
-}
-
-.hero-visual-card::before {
-  content: "";
-  position: absolute;
-  inset: -30% -20% auto auto;
-  width: 60%;
-  height: 60%;
-  background: var(--gradient);
-  filter: blur(70px);
-  opacity: 0.28;
-  z-index: -1;
-  border-radius: 50%;
-}
-
-.hero-visual-card .window-frame,
-.hero-visual-card .browser-frame {
-  border-radius: var(--radius);
-}
-
-.hero-visual-caption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.85rem 0.4rem 0.35rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  max-width: 78rem;
+  margin: 3.5rem auto 0;
+  padding: 0 2.5rem;
 }
 
 @media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
+  .hero-showcase {
+    padding: 0;
+  }
+}
+
+.hero-showcase .browser-frame {
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(77, 215, 164, 0.1);
+}
+
+.hero-showcase-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 4rem 0 1.5rem;
   }
 
   .hero-lead {
     max-width: none;
+  }
+
+  .hero-showcase {
+    margin-top: 2.5rem;
   }
 }
 
@@ -721,7 +713,7 @@ main section.section-alt {
 
 .spotlight-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -745,17 +737,18 @@ main section.section-alt {
   content: "";
   position: absolute;
   inset: -10% -10% auto auto;
-  width: 70%;
-  height: 70%;
+  width: 60%;
+  height: 60%;
   background: var(--gradient);
   filter: blur(90px);
-  opacity: 0.26;
+  opacity: 0.16;
   z-index: -1;
   border-radius: 50%;
 }
 
-.spotlight-visual .browser-frame {
-  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(77, 215, 164, 0.12);
+.spotlight-visual .browser-frame,
+.spotlight-visual .window-frame {
+  box-shadow: var(--shadow);
 }
 
 .spotlight-callout {
@@ -791,17 +784,33 @@ main section.section-alt {
   height: 0.9rem;
 }
 
-.spotlight-callout.callout-top {
-  top: -0.5rem;
-  left: 2rem;
+.spotlight-callout.callout-tl {
+  top: 8%;
+  left: -1.75rem;
 }
 
-.spotlight-callout.callout-bottom {
-  bottom: -0.5rem;
-  right: 2rem;
+.spotlight-callout.callout-tr {
+  top: 8%;
+  right: -1.75rem;
 }
 
-@media (max-width: 640px) {
+.spotlight-callout.callout-bl {
+  bottom: 14%;
+  left: -1.75rem;
+}
+
+.spotlight-callout.callout-br {
+  bottom: 14%;
+  right: -1.75rem;
+}
+
+.spotlight-callout.callout-ml {
+  top: 50%;
+  left: -2.25rem;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
   .spotlight-callout {
     display: none;
   }
@@ -821,10 +830,10 @@ main section.section-alt {
 
 .spotlight-copy > p {
   color: var(--text-muted);
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin-bottom: 2rem;
-  max-width: 34rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  max-width: 30rem;
 }
 
 .spotlight-feature-grid {
@@ -1109,7 +1118,7 @@ main section.section-alt {
 .tool-card:hover {
   transform: translateY(-3px);
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .tool-card-media {
@@ -1439,6 +1448,7 @@ main section.section-alt {
 .tutorial-card:hover {
   transform: translateY(-3px);
   border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .tutorial-thumb {
@@ -1670,6 +1680,7 @@ main section.section-alt {
 .social-card:hover {
   transform: translateY(-3px);
   border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .social-icon {
