@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Local env / secrets — this is a static site with no backend,
+# but keep this in place in case one is added later (e.g. a form handler).
+.env
+.env.local
+*.key
+
+# Logs
+*.log

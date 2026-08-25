@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Simple Money Tools">
+  <defs>
+    <linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#4fa8e0"/>
+      <stop offset="1" stop-color="#3ecf8e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0a0e13"/>
+  <path d="M14 40 L14 46 Q14 48 16 48 L20 48 Q22 48 22 46 L22 40 Q22 38 20 38 L16 38 Q14 38 14 40 Z" fill="url(#g)"/>
+  <path d="M27 32 L27 46 Q27 48 29 48 L33 48 Q35 48 35 46 L35 32 Q35 30 33 30 L29 30 Q27 30 27 32 Z" fill="url(#g)"/>
+  <path d="M40 24 L40 46 Q40 48 42 48 L46 48 Q48 48 48 46 L48 24 Q48 22 46 22 L42 22 Q40 22 40 24 Z" fill="url(#g)"/>
+  <path d="M13 33 L24 22 L30 27 L40 16" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 16 L40 16 L40 24" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

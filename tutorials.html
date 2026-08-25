@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tutorials — Simple Money Tools</title>
+	<meta name="description" content="Written guides and video walkthroughs for the Simple Money Tools Budget Tracker and Personal Dashboard extension, plus troubleshooting and FAQs." />
+	<link rel="canonical" href="https://simplemoney-tools.co.uk/tutorials.html" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Simple Money Tools" />
+	<meta property="og:title" content="Tutorials — Simple Money Tools" />
+	<meta property="og:description" content="Written guides and video walkthroughs for the Simple Money Tools Budget Tracker and Personal Dashboard extension, plus troubleshooting and FAQs." />
+	<meta property="og:url" content="https://simplemoney-tools.co.uk/tutorials.html" />
+	<meta property="og:image" content="https://simplemoney-tools.co.uk/assets/branding/logo-full.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
+	<link rel="apple-touch-icon" href="assets/branding/logo-mark.jpg" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="nav-inner">
+			<a class="brand" href="index.html">
+				<img class="brand-mark" src="assets/branding/logo-mark.jpg" alt="" width="34" height="34" />
+				Simple Money Tools
+			</a>
+
+			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+				<svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+				<svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+			</button>
+
+			<nav class="nav-links" id="nav-links" aria-label="Primary">
+				<a href="index.html">Home</a>
+				<a href="tools.html">Tools</a>
+				<a href="tutorials.html" aria-current="page">Tutorials</a>
+				<a href="about.html">About</a>
+				<a href="contact.html">Contact</a>
+
+				<div class="nav-social" aria-label="Social media">
+					<a href="https://www.youtube.com/@SimpleMoney_Tools" target="_blank" rel="noopener" aria-label="Simple Money Tools on YouTube">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C15.9 5 12 5 12 5h0s-3.9 0-6.9.2c-.4 0-1.4.1-2.2 1C2.2 6.9 2 8.5 2 8.5S1.8 10.4 1.8 12.2v1.6c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.2.2 7.2.2s3.9 0 6.9-.2c.4 0 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.7v-1.6c0-1.9-.2-3.7-.2-3.7Z"/><path d="M9.8 15.3V9.4l5.4 2.9-5.4 3Z"/></svg>
+					</a>
+					<a href="#" aria-label="Simple Money Tools on Instagram (link coming soon)" data-placeholder-link="instagram">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg>
+					</a>
+					<a href="#" aria-label="Simple Money Tools on TikTok (link coming soon)" data-placeholder-link="tiktok">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M15 3c0 2.5 2 4.5 4.5 4.5"/></svg>
+					</a>
+				</div>
+
+				<a class="btn btn-primary btn-sm nav-cta" href="tools.html">View Tools</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<div class="page-hero wrap">
+			<p class="eyebrow">Tutorials &amp; instructions</p>
+			<h1>Learn each tool, step by step</h1>
+			<p>Written guides and video walkthroughs, written in plain English. Search or filter to find what you need.</p>
+		</div>
+
+		<section aria-labelledby="tutorials-list-title">
+			<div class="wrap">
+				<h2 class="visually-hidden" id="tutorials-list-title">Tutorial list</h2>
+
+				<div class="search-box">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+					<label class="visually-hidden" for="tutorial-search">Search tutorials</label>
+					<input type="search" id="tutorial-search" placeholder="Search tutorials…" data-tutorial-search autocomplete="off" />
+				</div>
+
+				<div class="filter-bar" data-tutorial-filters role="group" aria-label="Filter tutorials by category">
+					<button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+					<button class="filter-btn" type="button" data-filter="budget-tracker" aria-pressed="false">Budget Tracker</button>
+					<button class="filter-btn" type="button" data-filter="dashboard" aria-pressed="false">Personal Dashboard</button>
+					<button class="filter-btn" type="button" data-filter="written" aria-pressed="false">Written Guides</button>
+					<button class="filter-btn" type="button" data-filter="video" aria-pressed="false">Video Guides</button>
+				</div>
+
+				<div class="card-grid">
+					<article class="tutorial-card reveal" id="budget-tracker" data-tutorial-card data-tags="budget-tracker written beginner" data-search="getting started budget tracker excel download open income expenses">
+						<div class="tutorial-thumb">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+							<span class="thumb-label">Written guide</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-beginner">Beginner</span>
+								<span>5 min read</span>
+							</div>
+							<h3>Getting started with the Budget Tracker</h3>
+							<p>Download the spreadsheet, enable macros/editing if Excel asks, and enter your first month of income and outgoings.</p>
+							<a class="btn btn-ghost btn-sm" href="#budget-tracker-guide">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" id="budget-tracker-dashboard-guide" data-tutorial-card data-tags="budget-tracker written intermediate" data-search="understanding dashboard essential non-essential charts left over">
+						<div class="tutorial-thumb">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15v4M12 9v10M17 5v14"/></svg>
+							<span class="thumb-label">Written guide</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-intermediate">Intermediate</span>
+								<span>6 min read</span>
+							</div>
+							<h3>Understanding your dashboard</h3>
+							<p>What "essential vs non-essential" means, how the annual totals are calculated, and how to read the charts.</p>
+							<a class="btn btn-ghost btn-sm" href="#dashboard-reading-guide">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" id="personal-dashboard-setup" data-tutorial-card data-tags="dashboard written beginner" data-search="install personal dashboard chrome extension new tab bookmarks">
+						<div class="tutorial-thumb">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+							<span class="thumb-label">Written guide</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-beginner">Beginner</span>
+								<span>4 min read</span>
+							</div>
+							<h3>Installing Personal Dashboard</h3>
+							<p>Add the extension from the Chrome Web Store, choose a background style, and pick your bookmark folder.</p>
+							<a class="btn btn-ghost btn-sm" href="#dashboard-setup-guide">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" data-tutorial-card data-tags="dashboard written beginner" data-search="watchlist crypto stock tickers add remove reorder">
+						<div class="tutorial-thumb">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 6h7v7"/></svg>
+							<span class="thumb-label">Written guide</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-beginner">Beginner</span>
+								<span>3 min read</span>
+							</div>
+							<h3>Setting up your watchlist</h3>
+							<p>Add up to 10 crypto or stock tickers, reorder them, and remove ones you no longer track.</p>
+							<a class="btn btn-ghost btn-sm" href="#watchlist-guide">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" data-tutorial-card data-tags="budget-tracker video beginner" data-search="youtube video budgeting basics channel">
+						<div class="tutorial-thumb">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C15.9 5 12 5 12 5h0s-3.9 0-6.9.2c-.4 0-1.4.1-2.2 1C2.2 6.9 2 8.5 2 8.5S1.8 10.4 1.8 12.2v1.6c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.2.2 7.2.2s3.9 0 6.9-.2c.4 0 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.7v-1.6c0-1.9-.2-3.7-.2-3.7Z"/><path d="M9.8 15.3V9.4l5.4 2.9-5.4 3Z"/></svg>
+							<span class="thumb-label">YouTube</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-beginner">Beginner</span>
+								<span>Video</span>
+							</div>
+							<h3>Budgeting basics playlist</h3>
+							<p>Video walkthroughs of the free tools on the Simple Money Tools YouTube channel — new videos added regularly.</p>
+							<a class="btn btn-ghost btn-sm" href="https://www.youtube.com/@SimpleMoney_Tools" target="_blank" rel="noopener">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" data-tutorial-card data-tags="coming-soon video dashboard" data-search="dashboard pro trading 212 video coming soon">
+						<div class="tutorial-thumb">
+							<span class="visually-hidden">Placeholder thumbnail — video not yet published</span>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+							<span class="thumb-label">Coming soon</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="badge badge-soon">Coming Soon</span>
+							</div>
+							<h3>Setting up Simple Money Tools Pro</h3>
+							<p>A full walkthrough of Pro setup and Trading 212 connection will be published once Pro is released.</p>
+							<a class="btn btn-ghost btn-sm" aria-disabled="true" href="#" tabindex="-1">Coming Soon</a>
+						</div>
+					</article>
+				</div>
+
+				<div class="empty-state" data-tutorials-empty>
+					<p>No tutorials match your search or filter yet. Try clearing the search box.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="tight" aria-labelledby="guide-content-title" style="border-top:1px solid var(--border);">
+			<div class="wrap legal-content">
+				<h2 class="visually-hidden" id="guide-content-title">Guide details</h2>
+
+				<h2 id="budget-tracker-guide">Getting started with the Budget Tracker</h2>
+				<p>Download the free Budget Tracker from Gumroad and open it in Excel. If Excel shows a yellow "Protected View" or "Enable Content" bar, click through it — this is standard for downloaded spreadsheets, not specific to this file.</p>
+				<ul>
+					<li>Go to the <strong>Income</strong> and <strong>Expenses</strong> tabs and enter your own figures in place of the examples.</li>
+					<li>The <strong>Dashboard</strong> tab updates automatically — no formulas to edit.</li>
+					<li>Save a copy for each month, or reuse one sheet and update it as things change — whichever suits you.</li>
+				</ul>
+
+				<h2 id="dashboard-reading-guide">Understanding your dashboard</h2>
+				<p>"Essential" spending covers the fixed, hard-to-avoid costs you've categorised as such (rent, bills, groceries, etc). "Non-essential" is everything else you've tagged. The split is based entirely on how you categorise each expense row — the tracker doesn't decide this for you.</p>
+				<p>"Left over" is simply income minus total spend, shown both monthly and projected annually based on your monthly figure.</p>
+
+				<h2 id="dashboard-setup-guide">Installing Personal Dashboard</h2>
+				<ul>
+					<li>Install the extension from the <a href="https://chrome.google.com/webstore/detail/personal-dashboard/fhojkjnciijmaajgikkhciajhpjheokc?hl=en&authuser=0" target="_blank" rel="noopener">Chrome Web Store</a>.</li>
+					<li>Open a new tab — Personal Dashboard replaces Chrome's default new tab page.</li>
+					<li>Open Settings (gear icon, bottom right) to choose a background style and pick which bookmark folder to show as shortcuts.</li>
+				</ul>
+
+				<h2 id="watchlist-guide">Setting up your watchlist</h2>
+				<p>From Settings → Watchlist, search for a ticker (crypto or stock) and add it. You can reorder tickers by dragging them, and remove any you no longer want to track. Up to 10 tickers are supported in the free version.</p>
+			</div>
+		</section>
+
+		<section id="troubleshooting" class="tight" aria-labelledby="troubleshooting-title">
+			<div class="wrap">
+				<div class="section-head center reveal">
+					<p class="eyebrow">Troubleshooting</p>
+					<h2 class="section-title" id="troubleshooting-title">Common issues</h2>
+				</div>
+
+				<div class="trouble-grid">
+					<div class="trouble-card reveal">
+						<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>Budget Tracker shows #REF or blank cells</h3>
+						<p>This usually means a row was deleted rather than cleared. Undo (Ctrl+Z) if it just happened, or re-download a fresh copy and re-enter your figures.</p>
+					</div>
+					<div class="trouble-card reveal">
+						<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>New tab still shows Chrome's default page</h3>
+						<p>Check <code>chrome://extensions</code> to confirm Personal Dashboard is enabled, and check Chrome's own new-tab setting hasn't been overridden by another extension.</p>
+					</div>
+					<div class="trouble-card reveal">
+						<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>A ticker won't add to the watchlist</h3>
+						<p>Double-check the symbol is correct and that you're under the 10-ticker limit on the free version. Some very new or low-volume assets may not be supported.</p>
+					</div>
+					<div class="trouble-card reveal">
+						<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>Still stuck?</h3>
+						<p>Get in touch through the <a href="contact.html">contact page</a> and select "Bug report" or "Tool support" — include which tool and what you were doing when it happened.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="faq" aria-labelledby="faq-title">
+			<div class="wrap">
+				<div class="section-head center reveal">
+					<p class="eyebrow">FAQ</p>
+					<h2 class="section-title" id="faq-title">Frequently asked questions</h2>
+				</div>
+
+				<div class="faq-list reveal">
+					<details class="faq-item">
+						<summary>Is the Budget Tracker really free?</summary>
+						<p>Yes. The Budget Tracker is free to download and use, with no account or sign-up required.</p>
+					</details>
+					<details class="faq-item">
+						<summary>Does Personal Dashboard need an account?</summary>
+						<p>No — install it from the Chrome Web Store and it works immediately. Nothing is required to connect for the free features.</p>
+					</details>
+					<details class="faq-item">
+						<summary>Is Simple Money Tools Pro available yet?</summary>
+						<p>Not yet — it's in active development. Register your interest on the <a href="contact.html#updates">contact page</a> and you'll hear when it's ready, including pricing at that point.</p>
+					</details>
+					<details class="faq-item">
+						<summary>Will connecting Trading 212 give Simple Money Tools access to my money?</summary>
+						<p>The planned Trading 212 integration is read-only — it can only read portfolio information Trading 212's API exposes, and cannot place trades or move funds. Full detail will be published in the Pro setup guide and privacy policy once it launches.</p>
+					</details>
+					<details class="faq-item">
+						<summary>Which browsers are supported?</summary>
+						<p>Personal Dashboard is built for Google Chrome and other Chromium-based browsers (e.g. Edge, Brave) that support the Chrome Web Store.</p>
+					</details>
+					<details class="faq-item">
+						<summary>How do I report a bug?</summary>
+						<p>Use the <a href="contact.html">contact form</a> and choose "Bug report" from the topic list, or email the support address listed there.</p>
+					</details>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer-grid">
+				<div class="footer-col">
+					<a class="footer-brand" href="index.html">
+						<img src="assets/branding/logo-mark.jpg" alt="" width="32" height="32" />
+						Simple Money Tools
+					</a>
+					<p>Straightforward tools for organising and understanding your money — a free budget tracker, a Chrome new-tab dashboard, and clear tutorials for both.</p>
+					<div class="footer-social">
+						<a href="https://www.youtube.com/@SimpleMoney_Tools" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C15.9 5 12 5 12 5h0s-3.9 0-6.9.2c-.4 0-1.4.1-2.2 1C2.2 6.9 2 8.5 2 8.5S1.8 10.4 1.8 12.2v1.6c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.2.2 7.2.2s3.9 0 6.9-.2c.4 0 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.7v-1.6c0-1.9-.2-3.7-.2-3.7Z"/><path d="M9.8 15.3V9.4l5.4 2.9-5.4 3Z"/></svg></a>
+						<a href="#" data-placeholder-link="instagram" aria-label="Instagram (coming soon)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg></a>
+						<a href="#" data-placeholder-link="tiktok" aria-label="TikTok (coming soon)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M15 3c0 2.5 2 4.5 4.5 4.5"/></svg></a>
+					</div>
+				</div>
+
+				<div class="footer-col">
+					<h4>Site</h4>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="tools.html">Tools</a></li>
+						<li><a href="tutorials.html">Tutorials</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-col">
+					<h4>Support</h4>
+					<ul>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="tutorials.html#faq">FAQ</a></li>
+						<li><a href="tutorials.html#troubleshooting">Troubleshooting</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-col">
+					<h4>Legal</h4>
+					<ul>
+						<li><a href="privacy.html">Privacy Policy</a></li>
+						<li><a href="terms.html">Terms</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; <span id="year"></span> Simple Money Tools. All rights reserved.</p>
+				<div class="footer-bottom-links">
+					<a href="privacy.html">Privacy</a>
+					<a href="terms.html">Terms</a>
+					<a href="contact.html">Contact</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<button class="back-to-top" type="button" aria-label="Back to top">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+	</button>
+
+	<script src="js/main.js"></script>
+</body>
+</html>
