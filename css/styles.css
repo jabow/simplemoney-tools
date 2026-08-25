@@ -8,48 +8,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Brand accent — sampled from the Simple Money Tools logo (teal-green to blue),
-     softened toward pastel so it reads as friendly rather than "terminal green" */
-  --accent: #4dd7a4;
-  --accent-2: #5cb6ea;
-  --accent-contrast: #07231a;
+  /* Brand accent — a single deliberate teal, used sparingly (buttons, small
+     labels, checkmarks, highlights) rather than smeared across every
+     heading and border. Blue is a distinct secondary, not a teal variant */
+  --accent: #4dd4bf;
+  --accent-hover: #63e6d2;
+  --accent-2: #60a5fa;
+  --accent-contrast: #052e28;
   --gradient: linear-gradient(135deg, var(--accent-2), var(--accent));
 
-  /* Surfaces — a lighter, warmer dark theme (slate rather than near-black).
-     Each step (bg -> bg-alt -> card-bg -> card-bg-raised) is a deliberate,
-     visible increment so page background, alternate sections and cards
-     are each clearly distinct surfaces rather than blurring together */
-  --bg: #151a21;
-  --bg-alt: #1c222b;
-  --card-bg: #232b37;
-  --card-bg-raised: #2c3644;
-  /* Borders as low-alpha white rather than a fixed hex — reads as a soft
-     hairline on every surface (bg, card, raised card) instead of a hard
-     edge that only matches one of them */
-  --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.14);
+  /* Surfaces — deep navy rather than slate, with a deliberate step between
+     page background, alternate sections and card background */
+  --bg: #07111f;
+  --bg-alt: #0b1728;
+  --card-bg: #101d31;
+  --card-bg-raised: #16243a;
+  --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    var(--card-bg);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
 
-  /* Text — slightly softer white, and a lighter muted tone for better
-     everyday readability at larger body sizes */
-  --text: #eef1f6;
-  --text-muted: #aab5c6;
-  --text-faint: #7e899b;
+  /* Text */
+  --text: #f8fafc;
+  --text-muted: #b7c5d8;
+  --text-faint: #8495a8;
 
   /* Status */
-  --free: #4dd7a4;
-  --paid: #5cb6ea;
-  --soon: #aab5c6;
+  --free: #4dd4bf;
+  --paid: #60a5fa;
+  --soon: #94a3b8;
   --warn: #e6bd5e;
 
-  /* Softer, larger, lower-opacity shadows — diffuse elevation rather than
-     a hard drop shadow. Each includes a 1px inset top highlight, giving
-     every card a faint bevel/depth without an extra visible border */
-  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 1px 2px rgba(6, 8, 12, 0.14),
-    0 16px 38px rgba(6, 8, 12, 0.22);
-  --shadow-lg: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 70px rgba(6, 8, 12, 0.34);
-  --radius-sm: 10px;
-  --radius: 18px;
-  --radius-lg: 26px;
+  /* Card shadows: soft, deep and diffuse rather than a hard drop shadow */
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
   --max-width: 1160px;
 
   --font-heading: "Sora", "Segoe UI", sans-serif;
@@ -151,6 +146,11 @@ svg {
 
 main section {
   padding: 8.5rem 0;
+  position: relative;
+  /* An extremely faint teal wash at the top of every section — depth
+     without a visible line between sections */
+  background-image: linear-gradient(180deg, rgba(77, 212, 191, 0.03), transparent 40%);
+  background-repeat: no-repeat;
 }
 
 main section.tight {
@@ -266,13 +266,14 @@ main section.section-alt {
 }
 
 .btn-primary {
-  background: var(--gradient);
+  background-color: var(--accent);
   color: var(--accent-contrast);
-  box-shadow: 0 8px 24px rgba(77, 215, 164, 0.18);
+  box-shadow: 0 8px 24px rgba(77, 212, 191, 0.22);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 12px 30px rgba(77, 215, 164, 0.28);
+  background-color: var(--accent-hover);
+  box-shadow: 0 14px 32px rgba(77, 212, 191, 0.32);
 }
 
 .btn-ghost {
@@ -314,14 +315,14 @@ main section.section-alt {
 
 .badge-free {
   color: var(--free);
-  border-color: rgba(77, 215, 164, 0.4);
-  background-color: rgba(77, 215, 164, 0.1);
+  border-color: rgba(77, 212, 191, 0.4);
+  background-color: rgba(77, 212, 191, 0.1);
 }
 
 .badge-paid {
   color: var(--paid);
-  border-color: rgba(92, 182, 234, 0.4);
-  background-color: rgba(92, 182, 234, 0.1);
+  border-color: rgba(96, 165, 250, 0.4);
+  background-color: rgba(96, 165, 250, 0.1);
 }
 
 .badge-soon {
@@ -342,8 +343,8 @@ main section.section-alt {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(18, 22, 29, 0.82);
-  backdrop-filter: blur(10px);
+  background-color: rgba(7, 17, 31, 0.66);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -385,9 +386,9 @@ main section.section-alt {
 .nav-links a:not(.btn) {
   text-decoration: none;
   color: var(--text-muted);
-  font-size: 0.92rem;
-  font-weight: 600;
-  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 0.65rem;
   border-radius: var(--radius-sm);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
@@ -411,8 +412,8 @@ main section.section-alt {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 999px;
   color: var(--text-muted);
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -424,8 +425,8 @@ main section.section-alt {
 }
 
 .nav-social svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.05rem;
+  height: 1.05rem;
 }
 
 .nav-cta {
@@ -518,7 +519,8 @@ main section.section-alt {
    in the vein of Linear/Raycast/Arc/Vercel marketing pages ---------------- */
 
 .hero {
-  padding: 7rem 0 2rem;
+  max-width: 1300px;
+  padding: 8.5rem 0 3rem;
   position: relative;
 }
 
@@ -529,8 +531,8 @@ main section.section-alt {
   position: absolute;
   inset: -15% 5% auto 5%;
   height: 75%;
-  background: radial-gradient(ellipse at 35% 20%, rgba(77, 215, 164, 0.16), transparent 62%),
-    radial-gradient(ellipse at 70% 40%, rgba(92, 182, 234, 0.13), transparent 58%);
+  background: radial-gradient(ellipse at 35% 20%, rgba(77, 212, 191, 0.16), transparent 62%),
+    radial-gradient(ellipse at 70% 40%, rgba(96, 165, 250, 0.13), transparent 58%);
   filter: blur(50px);
   z-index: -1;
   pointer-events: none;
@@ -540,20 +542,38 @@ main section.section-alt {
   max-width: 40rem;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+}
+
+/* A tighter, brighter glow focused directly behind the headline itself */
+.hero-copy::before {
+  content: "";
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44rem;
+  height: 26rem;
+  background: radial-gradient(circle, rgba(77, 212, 191, 0.12), transparent 70%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero h1 {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: clamp(2.4rem, 5.2vw, 3.75rem);
   letter-spacing: -0.025em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.4rem;
 }
 
 .hero-lead {
   color: var(--text-muted);
   font-size: 1.15rem;
   line-height: 1.7;
-  max-width: 32rem;
-  margin: 0 auto 2rem;
+  max-width: 550px;
+  margin: 0 auto 2.25rem;
 }
 
 .hero-actions {
@@ -561,7 +581,16 @@ main section.section-alt {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero-actions .btn {
+  padding: 1rem 1.9rem;
+  font-size: 1rem;
+}
+
+.hero-actions .btn-primary {
+  box-shadow: 0 14px 38px rgba(77, 212, 191, 0.28);
 }
 
 .trust-line {
@@ -582,22 +611,25 @@ main section.section-alt {
 }
 
 /* Full-width product showcase beneath the headline — the largest, most
-   prominent screenshot on the page */
+   prominent screenshot on the page, set on its own slightly-lighter
+   "stage" so it reads as a distinct block from the hero copy above it */
 .hero-showcase {
   position: relative;
   max-width: 78rem;
-  margin: 3.5rem auto 0;
-  padding: 0 2.5rem;
+  margin: 4.5rem auto 0;
+  padding: 3rem 3rem 2.5rem;
+  background-color: var(--bg-alt);
+  border-radius: var(--radius-lg);
 }
 
 @media (max-width: 900px) {
   .hero-showcase {
-    padding: 0;
+    padding: 1.5rem;
   }
 }
 
 .hero-showcase .browser-frame {
-  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(77, 215, 164, 0.1);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(77, 212, 191, 0.12);
 }
 
 .hero-showcase-caption {
@@ -605,14 +637,14 @@ main section.section-alt {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   font-size: 0.85rem;
   color: var(--text-faint);
 }
 
 @media (max-width: 640px) {
   .hero {
-    padding: 4rem 0 1.5rem;
+    padding: 5rem 0 2rem;
   }
 
   .hero-lead {
@@ -620,7 +652,7 @@ main section.section-alt {
   }
 
   .hero-showcase {
-    margin-top: 2.5rem;
+    margin-top: 3rem;
   }
 }
 
@@ -665,7 +697,7 @@ main section.section-alt {
 }
 
 .frame-dots span:nth-child(3) {
-  background-color: #4dd7a4;
+  background-color: #4dd4bf;
 }
 
 .frame-address {
@@ -713,7 +745,9 @@ main section.section-alt {
 
 .spotlight-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* The screenshot column is deliberately much wider than the copy column
+     — the product, not the paragraph, should sell this section */
+  grid-template-columns: 0.7fr 1.3fr;
   gap: 3.5rem;
   align-items: center;
 }
@@ -751,20 +785,61 @@ main section.section-alt {
   box-shadow: var(--shadow);
 }
 
+/* Laptop-style mockup for the Budget Tracker screenshot — a simplified
+   CSS-drawn bezel + base, so the spreadsheet reads as a product rather
+   than a raw Excel screenshot */
+.laptop-frame {
+  position: relative;
+}
+
+.laptop-frame::before {
+  /* soft teal glow beneath the "laptop" */
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -1.5rem;
+  height: 3rem;
+  background: rgba(77, 212, 191, 0.15);
+  filter: blur(38px);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.laptop-frame .window-frame {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius) var(--radius) 4px 4px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.laptop-frame-base {
+  width: 62%;
+  height: 0.9rem;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--card-bg-raised), var(--bg-alt));
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
 .spotlight-callout {
   position: absolute;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--card-bg-raised);
-  border: 1px solid var(--border-strong);
+  /* Frosted glass: the screenshot behind shows through, blurred and
+     darkened, rather than a flat opaque chip */
+  background-color: rgba(16, 29, 49, 0.7);
+  backdrop-filter: blur(14px) brightness(0.85);
+  -webkit-backdrop-filter: blur(14px) brightness(0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   padding: 0.5rem 0.9rem 0.5rem 0.5rem;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--text);
-  box-shadow: var(--shadow);
-  animation: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .spotlight-callout .dot {
@@ -886,15 +961,19 @@ main section.section-alt {
 
 /* ---- Ecosystem (how the tools connect) ------------------------------------ */
 
+/* A vertical timeline rather than a horizontal row — one connected system,
+   read top to bottom like a flow diagram, not three side-by-side cards */
 .ecosystem-row {
   display: flex;
-  align-items: stretch;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  max-width: 26rem;
+  margin: 0 auto;
 }
 
 .ecosystem-step {
-  flex: 1;
-  background-color: var(--card-bg);
+  width: 100%;
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem 1.75rem;
@@ -903,6 +982,26 @@ main section.section-alt {
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.ecosystem-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
+}
+
+/* The middle step (Personal Dashboard) is the flagship — give it a little
+   more visual weight than the two either side */
+.ecosystem-step.is-primary {
+  border-color: rgba(77, 212, 191, 0.35);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(77, 212, 191, 0.12);
+  transform: scale(1.04);
+}
+
+.ecosystem-step.is-primary:hover {
+  transform: scale(1.04) translateY(-4px);
 }
 
 .ecosystem-icon {
@@ -940,38 +1039,39 @@ main section.section-alt {
   line-height: 1.55;
 }
 
+/* Glowing vertical connector — a faint line fading downward, ending in a
+   small chevron, instead of an arrow icon */
 .ecosystem-connector {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 0.15rem;
   flex-shrink: 0;
-  width: 2rem;
-  color: var(--border-strong);
+  height: 3.5rem;
+  margin: 0.5rem 0;
+}
+
+.ecosystem-connector .line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(180deg, rgba(77, 212, 191, 0.6), rgba(77, 212, 191, 0));
 }
 
 .ecosystem-connector svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-@media (max-width: 820px) {
-  .ecosystem-row {
-    flex-direction: column;
-  }
-
-  .ecosystem-connector {
-    width: auto;
-    height: 2rem;
-    transform: rotate(90deg);
-  }
+  width: 1rem;
+  height: 1rem;
+  color: rgba(77, 212, 191, 0.6);
+  flex-shrink: 0;
 }
 
 /* ---- Trust / credibility -------------------------------------------------- */
 
 .trust-grid {
   display: grid;
-  gap: 1.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  max-width: 56rem;
+  margin: 0 auto;
 }
 
 .trust-card {
@@ -980,10 +1080,19 @@ main section.section-alt {
   gap: 1rem;
   padding: 1.5rem;
   border-radius: var(--radius);
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
+.trust-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
+}
+
+/* Neutral by default — teal is reserved for the handful of icons marked
+   .is-accent, not applied uniformly across every card in the grid */
 .trust-card-icon {
   display: flex;
   align-items: center;
@@ -991,9 +1100,14 @@ main section.section-alt {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 999px;
-  background-color: rgba(77, 215, 164, 0.12);
-  color: var(--accent);
+  background-color: #162437;
+  color: var(--text-muted);
   flex-shrink: 0;
+}
+
+.trust-card-icon.is-accent {
+  background-color: rgba(77, 212, 191, 0.12);
+  color: var(--accent);
 }
 
 .trust-card-icon svg {
@@ -1016,21 +1130,41 @@ main section.section-alt {
 
 .roadmap-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: 860px) {
   .roadmap-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 .roadmap-col {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.roadmap-col:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.roadmap-col.is-now {
+  border-top-color: var(--accent);
+}
+
+.roadmap-col.is-next {
+  border-top-color: var(--accent-2);
+}
+
+.roadmap-col.is-future {
+  border-top-color: var(--soon);
 }
 
 .roadmap-col-head {
@@ -1049,12 +1183,12 @@ main section.section-alt {
 
 .roadmap-col.is-now .roadmap-dot {
   background-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(77, 215, 164, 0.18);
+  box-shadow: 0 0 0 4px rgba(77, 212, 191, 0.18);
 }
 
 .roadmap-col.is-next .roadmap-dot {
   background-color: var(--accent-2);
-  box-shadow: 0 0 0 4px rgba(92, 182, 234, 0.18);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
 }
 
 .roadmap-col.is-future .roadmap-dot {
@@ -1105,7 +1239,7 @@ main section.section-alt {
 }
 
 .tool-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -1116,7 +1250,7 @@ main section.section-alt {
 }
 
 .tool-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-strong);
   box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
@@ -1179,7 +1313,7 @@ main section.section-alt {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, rgba(92, 182, 234, 0.16), rgba(77, 215, 164, 0.16));
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.16), rgba(77, 212, 191, 0.16));
   color: var(--text-muted);
   text-align: center;
   padding: 1rem;
@@ -1331,7 +1465,7 @@ main section.section-alt {
 }
 
 .compare-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -1341,8 +1475,8 @@ main section.section-alt {
 }
 
 .compare-card.is-pro {
-  border-color: rgba(92, 182, 234, 0.4);
-  background: linear-gradient(180deg, rgba(92, 182, 234, 0.08), var(--card-bg) 40%);
+  border-color: rgba(96, 165, 250, 0.4);
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.08), var(--card-bg) 40%);
 }
 
 .compare-head {
@@ -1403,7 +1537,7 @@ main section.section-alt {
 .step-card {
   position: relative;
   padding: 1.75rem 1.5rem 1.5rem;
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -1435,7 +1569,7 @@ main section.section-alt {
 /* ---- Tutorials --------------------------------------------------------- */
 
 .tutorial-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -1446,14 +1580,14 @@ main section.section-alt {
 }
 
 .tutorial-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-strong);
   box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .tutorial-thumb {
   height: 10rem;
-  background: linear-gradient(135deg, rgba(92, 182, 234, 0.18), rgba(77, 215, 164, 0.18));
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.18), rgba(77, 212, 191, 0.18));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1578,7 +1712,7 @@ main section.section-alt {
 }
 
 .faq-item {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -1629,7 +1763,7 @@ main section.section-alt {
 }
 
 .trouble-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -1664,7 +1798,7 @@ main section.section-alt {
 }
 
 .social-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -1678,7 +1812,7 @@ main section.section-alt {
 }
 
 .social-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-strong);
   box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
@@ -1711,30 +1845,32 @@ main section.section-alt {
 /* ---- Founder ---------------------------------------------------------------- */
 
 .founder-card {
-  max-width: 46rem;
+  max-width: 50rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 3rem;
   background-color: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 700px) {
   .founder-card {
     flex-direction: column;
     text-align: center;
-    padding: 2rem 1.75rem;
+    padding: 2.25rem 1.75rem;
+    gap: 1.75rem;
   }
 }
 
 .founder-avatar {
+  position: relative;
   flex-shrink: 0;
-  width: 6rem;
-  height: 6rem;
+  width: 8.5rem;
+  height: 8.5rem;
   border-radius: 999px;
   overflow: hidden;
   background-color: #eef4f0;
@@ -1742,7 +1878,8 @@ main section.section-alt {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 0 0 10px rgba(77, 212, 191, 0.06), 0 0 50px rgba(77, 212, 191, 0.22);
 }
 
 .founder-avatar img {
@@ -1754,21 +1891,23 @@ main section.section-alt {
 .founder-name {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.15rem;
+  font-size: 1.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .founder-title {
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  margin-bottom: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.1rem;
 }
 
 .founder-bio {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.7;
+  max-width: 650px;
   margin-bottom: 1rem;
 }
 
@@ -1794,7 +1933,7 @@ main section.section-alt {
 /* ---- Newsletter ----------------------------------------------------------- */
 
 .newsletter {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
@@ -1873,7 +2012,7 @@ main section.section-alt {
 }
 
 .contact-form {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -1938,7 +2077,7 @@ main section.section-alt {
 }
 
 .contact-info-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -2048,7 +2187,7 @@ main section.section-alt {
 }
 
 .about-photo-card {
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -2096,7 +2235,7 @@ main section.section-alt {
   padding: 1.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background-color: var(--card-bg);
+  background: var(--card-gradient);
 }
 
 .value-card svg {
