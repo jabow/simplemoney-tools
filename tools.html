@@ -187,8 +187,16 @@
 									key pasted onto a public page would send every visitor to the
 									same person's licence. The purchase is started from inside the
 									extension instead — see the two steps described below.
+
+									WHEN THE LISTING IS APPROVED, on the anchor below: set the real
+									href, swap btn-ghost back to btn-primary, drop aria-disabled,
+									tabindex and data-placeholder-link, and shorten the label to
+									"Get it on the Chrome Web Store". It is deliberately styled as
+									a dimmed ghost button until then — at btn-primary it still read
+									as a live CTA even with aria-disabled applied, so people would
+									click it and get nothing.
 								-->
-								<a class="btn btn-primary btn-sm" href="#" aria-disabled="true" tabindex="-1" data-placeholder-link="webstore-pro">Get it on the Chrome Web Store</a>
+								<a class="btn btn-ghost btn-sm" href="#" aria-disabled="true" tabindex="-1" data-placeholder-link="webstore-pro">Chrome Web Store — listing pending</a>
 								<a class="btn btn-ghost btn-sm" href="personal-dashboard-pro-privacy.html">Privacy policy</a>
 							</div>
 							<p class="pro-buy-note"><strong>Listing pending review</strong> — the store link goes live as soon as Chrome approves it. Install the extension free, then upgrade from Settings &rarr; About inside it: the £5 is paid there, not on this website, and unlocks Pro on the spot.</p>
