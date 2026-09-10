@@ -105,7 +105,7 @@ placeholders:
 |---|---|---|
 | Instagram URL | nav, footer, `index.html` social section | `href="#"`, `data-placeholder-link="instagram"` |
 | TikTok URL | nav, footer, `index.html` social section | `href="#"`, `data-placeholder-link="tiktok"` |
-| Contact email `SimpleMoneyTools1@gmail.com` | `contact.html`, `js/main.js`, `contact.php` | Confirmed live by the project owner 2026-09-10. Replaced an earlier `hello@` address on this domain that was never actually created, so mail sent to it went nowhere. Also hard-coded in the Personal Dashboard Pro extension (`config.js`'s `SUPPORT_EMAIL`, a separate repository) — change all four together. |
+| Contact email `SimpleMoneyTools1@gmail.com` | `contact.html`, `js/main.js`, `contact.php` | Confirmed live by the project owner 2026-09-10. Replaced an earlier generic address on this domain that was never actually created, so mail sent to it went nowhere. Also hard-coded in the Personal Dashboard Pro extension (`config.js`'s `SUPPORT_EMAIL`, a separate repository) — change all four together. |
 | Contact form submission | `contact.php` | **Wired up** — posts to `contact.php`, which emails the address above. See below. |
 | Newsletter/"register interest" form | `index.html`, `contact.html` | No backend connected — see below |
 | Production URLs (canonical, Open Graph, sitemap) | all pages, `sitemap.xml`, `robots.txt` | Use the real domain `https://simplemoney-tools.co.uk/` already, but assume the site is deployed there — update if that changes |
