@@ -1,0 +1,45 @@
+# Simple Money Tools — Hostinger (Apache/LiteSpeed).
+#
+# This site deploys straight from the Git repository, and the repo root IS
+# the web root — so every committed file is publicly fetchable by default.
+# That was not theoretical: https://simplemoney-tools.co.uk/README.md
+# returned HTTP 200 as plain text, publishing the project's internal notes
+# (including a support address that no longer works) to anyone who guessed
+# the URL.
+#
+# Repository metadata and developer documentation are not part of the
+# website, so they are blocked here. Keep this in step with anything new
+# that gets committed but shouldn't be served.
+
+<IfModule mod_authz_core.c>
+	# Apache 2.4+
+	<FilesMatch "(?i)\.(md|markdown|yml|yaml|toml|ini|log|bak|sample|example|dist)$">
+		Require all denied
+	</FilesMatch>
+	<FilesMatch "(?i)^(\.gitignore|\.gitattributes|\.env.*|composer\.(json|lock)|package(-lock)?\.json)$">
+		Require all denied
+	</FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+	# Apache 2.2 fallback
+	<FilesMatch "(?i)\.(md|markdown|yml|yaml|toml|ini|log|bak|sample|example|dist)$">
+		Order allow,deny
+		Deny from all
+	</FilesMatch>
+</IfModule>
+
+# The .git directory should never be deployed, but if it ever is, this
+# stops the entire source history being downloadable.
+RedirectMatch 404 (?i)/\.git
+
+# .htaccess itself is protected by default on Apache 2.4, but be explicit.
+<Files ".htaccess">
+	<IfModule mod_authz_core.c>
+		Require all denied
+	</IfModule>
+	<IfModule !mod_authz_core.c>
+		Order allow,deny
+		Deny from all
+	</IfModule>
+</Files>

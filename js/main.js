@@ -197,37 +197,130 @@ function initTutorialFilters() {
   }
 }
 
-/* ---- Contact form: client-side validation only --------------------------------
- * This is a static site with no backend configured. Submission is intentionally
- * disabled — see contact.html and README.md for the documented placeholder.
+/* ---- Contact form ------------------------------------------------------------
+ * Posts to contact.php, which emails SimpleMoneyTools1@gmail.com and answers
+ * with JSON. The form keeps a real action/method, so it still submits (as a
+ * normal page POST) if this script fails to load — the fetch path below is
+ * the progressive enhancement, not the only route.
+ *
+ * The one rule here: never tell someone their message was sent unless the
+ * server actually said so. Every failure path names the email address
+ * instead, because a message silently lost is worse than an ugly error.
  */
+
+var CONTACT_EMAIL = "SimpleMoneyTools1@gmail.com";
 
 function initContactForm() {
   var form = document.querySelector("[data-contact-form]");
   if (!form) return;
 
   var statusEl = form.querySelector("[data-form-status]");
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var submitLabel = submitBtn ? submitBtn.textContent : "";
+
+  showRedirectOutcome();
+
+  /*
+   * The no-JavaScript path posts the form normally, and contact.php answers
+   * that with a redirect carrying the outcome in the query string. If this
+   * script did load afterwards (JS was merely slow, not off), surface that
+   * outcome here rather than leaving the visitor on a page that looks like
+   * nothing happened.
+   */
+  function showRedirectOutcome() {
+    if (!window.URLSearchParams) return;
+    var params = new URLSearchParams(window.location.search);
+    if (!params.has("sent")) return;
+
+    if (params.get("sent") === "1") {
+      setStatus(
+        "Thanks — your message has been sent. You'll get a reply to the address you gave.",
+        "success"
+      );
+    } else {
+      var reason = params.get("reason") || "Something went wrong sending that.";
+      setStatus(reason + " You can email " + CONTACT_EMAIL + " directly instead.", "error");
+    }
+
+    // Drop the parameters so a refresh doesn't replay a stale message.
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, "", window.location.pathname + window.location.hash);
+    }
+  }
+
+  function setStatus(message, kind) {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.classList.toggle("is-success", kind === "success");
+    statusEl.classList.toggle("is-error", kind === "error");
+  }
+
+  function setBusy(busy) {
+    if (!submitBtn) return;
+    submitBtn.disabled = busy;
+    submitBtn.textContent = busy ? "Sending…" : submitLabel;
+  }
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var valid = validateForm(form);
+    // Only intercept where fetch can actually take over. On anything older,
+    // fall through to the plain form POST rather than blocking submission.
+    if (!window.fetch || !window.FormData) return;
 
-    if (!valid) {
-      if (statusEl) {
-        statusEl.textContent = "Please fix the highlighted fields before sending.";
-        statusEl.classList.remove("is-success");
-        statusEl.classList.add("is-error");
-      }
+    e.preventDefault();
+
+    if (!validateForm(form)) {
+      setStatus("Please fix the highlighted fields before sending.", "error");
       return;
     }
 
-    if (statusEl) {
-      statusEl.textContent =
-        "This form isn't connected to a backend yet, so nothing was actually sent. " +
-        "Please email hello@simplemoney-tools.co.uk directly for now.";
-      statusEl.classList.remove("is-error");
-      statusEl.classList.add("is-success");
-    }
+    setBusy(true);
+    setStatus("Sending your message…", "");
+
+    fetch(form.getAttribute("action"), {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then(function (res) {
+        // A non-JSON body here means PHP itself errored (or isn't running
+        // at all, e.g. previewed over file://) — treat it as a failure
+        // rather than reading a 200 as proof of delivery.
+        return res.json().then(
+          function (data) {
+            return { ok: res.ok, data: data };
+          },
+          function () {
+            return { ok: false, data: null };
+          }
+        );
+      })
+      .then(function (result) {
+        if (result.ok && result.data && result.data.ok) {
+          form.reset();
+          setStatus(
+            "Thanks — your message has been sent. You'll get a reply to the address you gave.",
+            "success"
+          );
+          return;
+        }
+
+        var reason =
+          result.data && result.data.error
+            ? result.data.error
+            : "Something went wrong sending that.";
+        setStatus(reason + " You can email " + CONTACT_EMAIL + " directly instead.", "error");
+      })
+      .catch(function () {
+        setStatus(
+          "Couldn't reach the server — check your connection, or email " +
+            CONTACT_EMAIL +
+            " directly instead.",
+          "error"
+        );
+      })
+      .then(function () {
+        setBusy(false);
+      });
   });
 }
 

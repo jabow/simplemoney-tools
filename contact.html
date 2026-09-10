@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Contact — Simple Money Tools</title>
-	<meta name="description" content="Get in touch with Simple Money Tools for tool support, bug reports or general enquiries, or register interest in Simple Money Tools Pro." />
+	<meta name="description" content="Get in touch with Simple Money Tools for tool support, bug reports, feature requests or general enquiries about Personal Dashboard Pro." />
 	<link rel="canonical" href="https://simplemoney-tools.co.uk/contact.html" />
 
 	<meta property="og:type" content="website" />
@@ -17,7 +17,7 @@
 
 	<link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
 	<link rel="apple-touch-icon" href="assets/branding/logo-mark.jpg" />
-	<link rel="stylesheet" href="css/styles.css?v=4" />
+	<link rel="stylesheet" href="css/styles.css?v=5" />
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -67,11 +67,22 @@
 
 		<section aria-labelledby="contact-form-title">
 			<div class="wrap contact-layout">
-				<form class="contact-form reveal" data-contact-form novalidate aria-labelledby="contact-form-title">
+				<form class="contact-form reveal" id="contact-form" action="contact.php" method="post" data-contact-form novalidate aria-labelledby="contact-form-title">
 					<h2 class="visually-hidden" id="contact-form-title">Contact form</h2>
 
 					<div class="notice-box">
-						<strong>Note:</strong> this is a static site with no backend connected yet. Submitting this form will not send a message — please use the email address alongside it instead. See the README for how to wire this up.
+						<strong>Prefer email?</strong> Write to <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a> instead — it reaches exactly the same inbox as this form.
+					</div>
+
+					<!--
+						Honeypot. Hidden from people, irresistible to bots; contact.php
+						discards any submission that fills it in. Deliberately not
+						.visually-hidden, which stays focusable and screen-reader
+						visible — that would trap real users, not bots.
+					-->
+					<div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+						<label for="website">Leave this field empty</label>
+						<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
 					</div>
 
 					<div class="field">
@@ -93,7 +104,8 @@
 							<option value="general">General enquiry</option>
 							<option value="tool-support">Tool support</option>
 							<option value="bug-report">Bug report</option>
-							<option value="pro-interest">Simple Money Tools Pro interest</option>
+							<option value="feature-request">Feature request</option>
+							<option value="pro-interest">Personal Dashboard Pro</option>
 							<option value="other">Something else</option>
 						</select>
 						<span class="field-error" id="topic-error" data-error-for="topic"></span>
@@ -114,8 +126,17 @@
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
 						<div>
 							<h3>Email</h3>
-							<!-- PLACEHOLDER: confirm this mailbox exists on the domain before publishing -->
-							<p><a href="mailto:hello@simplemoney-tools.co.uk">hello@simplemoney-tools.co.uk</a></p>
+							<!--
+								Confirmed live by the project owner, 2026-09-10. It replaced an
+								earlier "hello@" address on this domain that was never actually
+								created, so anything sent there went nowhere — that address is
+								deliberately not repeated here, since HTML comments are served
+								to the browser like everything else. Also hard-coded as
+								SUPPORT_EMAIL in the Personal Dashboard Pro extension's
+								config.js (separate repo) and as CONTACT_TO in contact.php —
+								change all three together.
+							-->
+							<p><a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a></p>
 						</div>
 					</div>
 
@@ -200,6 +221,7 @@
 					<h4>Legal</h4>
 					<ul>
 						<li><a href="privacy.html">Privacy Policy</a></li>
+						<li><a href="personal-dashboard-pro-privacy.html">Personal Dashboard Pro Privacy</a></li>
 						<li><a href="terms.html">Terms</a></li>
 					</ul>
 				</div>
@@ -220,6 +242,6 @@
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 	</button>
 
-	<script src="js/main.js?v=4"></script>
+	<script src="js/main.js?v=5"></script>
 </body>
 </html>

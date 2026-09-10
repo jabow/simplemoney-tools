@@ -26,4 +26,15 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
+	<!--
+		Listed deliberately: the Chrome Web Store listing for Personal Dashboard
+		Pro points at this URL as the extension's privacy policy, so it has to
+		stay publicly reachable and indexable. Unlike privacy.html (which is
+		noindex), this page must not be hidden from crawlers.
+	-->
+	<url>
+		<loc>https://simplemoney-tools.co.uk/personal-dashboard-pro-privacy.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.4</priority>
+	</url>
 </urlset>

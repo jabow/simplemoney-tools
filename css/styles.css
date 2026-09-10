@@ -1744,6 +1744,43 @@ main section.section-alt {
   margin-top: 0.2rem;
 }
 
+/* ---- Pro pricing block (tools.html's Personal Dashboard Pro card) ------- */
+
+.pro-price {
+  font-size: 0.9rem;
+  color: var(--text);
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+  margin: 0.4rem 0 0.2rem;
+  line-height: 1.55;
+}
+
+/* Small caps-ish heading separating the "Pro unlocks" and "Free forever"
+   halves of the card, so the two tiers can't be misread as one list. */
+.pro-tier-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 600;
+  margin: 0.9rem 0 0.1rem;
+}
+
+.pro-free-note,
+.pro-buy-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0.2rem 0 0;
+}
+
+.pro-buy-note {
+  font-size: 0.8rem;
+  margin-top: 0.7rem;
+}
+
 .tool-card-actions {
   margin-top: auto;
   display: flex;
