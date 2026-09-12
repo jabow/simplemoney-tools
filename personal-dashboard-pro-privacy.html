@@ -67,78 +67,50 @@
 
 		<section>
 			<div class="wrap legal-content">
-				<p class="legal-meta">Last updated 12 September 2026 · Personal Dashboard Pro version 2.0 and later. Published by James at Simple Money Tools (correspondence address available on request, United Kingdom), who is the data controller. Contact: <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a>. For this website and the free tools, see the <a href="privacy.html">site-wide privacy policy</a>.</p>
+				<p class="legal-meta">Last updated 12 September 2026 · Personal Dashboard Pro 2.0 and later. Published by James at Simple Money Tools (correspondence address on request, United Kingdom), the data controller. Contact: <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a>. Checked against the extension's source code, but not reviewed by a solicitor. For this website and the free tools, see the <a href="privacy.html">site-wide policy</a>.</p>
 
-				<div class="review-notice">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
-					<p>Every statement here was checked against the extension's source code, but this page has not been reviewed by a solicitor.</p>
-				</div>
-
-				<h2>The short version</h2>
+				<h2>In short</h2>
 				<ul>
-					<li>There is no account, no sign-up, and no server of ours holding your data.</li>
-					<li>Your settings, bookmarks, watchlist and any integration credential stay in your browser's own extension storage, on your device. We never receive them.</li>
-					<li>One small proxy of ours sits between the extension and a few data providers. It receives a rounded location, ticker symbols and photo keywords — plus your IP address, as any web request carries. That is everything that reaches us.</li>
-					<li>Trading 212 and Strava are optional, off until you connect them, and read-only. The extension makes no write requests to either.</li>
-					<li>No ads, no sale of data, no analytics or tracking code.</li>
-					<li>You can disconnect an integration or delete all local data at any time, free, on every tier.</li>
+					<li>No account, no sign-up, and no server of ours holding your data.</li>
+					<li>Your settings, bookmarks, watchlist and any connected credential stay in your browser's own storage, on your device. We never receive them.</li>
+					<li>Trading 212 and Strava are optional, off until you connect them, and read-only — the extension cannot trade, move money or change anything on either account.</li>
+					<li>No ads, no sale of data, no analytics or tracking.</li>
+					<li>You can disconnect an integration or delete everything stored locally at any time, free.</li>
 				</ul>
-
-				<h2>What stays on your device</h2>
-				<p>Settings, bookmarks, watchlist, any Trading 212 API key or Strava token, cached price/weather/portfolio/activity data, and your anonymous ExtensionPay licence key are all held in Chrome's local extension storage on the device you installed on. They are not synced to your Google account and not sent to us.</p>
-				<p>That storage is protected by your operating system and Chrome profile, not by extra encryption we apply — so treat a connected API key like any other credential, and disconnect it before sharing or disposing of the device.</p>
 
 				<h2>What we receive</h2>
-				<p>Some providers require an API key, and shipping keys inside the extension would publish them, so those requests go through a small Cloudflare Worker we run which adds the key server-side. It has no accounts and no per-user state, and cannot tell that two requests came from the same person. It receives:</p>
+				<p>Weather, share prices and background photos come from providers that require an API key, so those requests pass through a small Cloudflare Worker of ours that adds the key. It has no accounts and no per-user state, and cannot link two requests to the same person. It receives only a location rounded to about a kilometre (rounded in your browser first), the ticker symbols on your watchlist, a photo keyword such as "mountains", and your IP address as any web request carries.</p>
+				<p>We rely on legitimate interests — running features you switched on, and keeping the service secure. We keep no request logs; responses are briefly cached at Cloudflare's edge so repeat requests share one upstream call, caching the response rather than the requester. Your Trading 212 data, Strava data, credentials, bookmarks, browsing history, name and email never reach it.</p>
+				<p>Crypto prices (CoinGecko), photo images, and bookmark icons (Google's favicon service, which is sent each bookmarked address — turn icons off in Settings → Appearance if you would rather it wasn't) are fetched directly by your browser, so those providers see your IP address as any site you visit would.</p>
+
+				<h2>Trading 212 and Strava</h2>
 				<ul>
-					<li>A location rounded to roughly a kilometre (rounded in your browser before sending), for weather</li>
-					<li>The ticker symbols shown on your watchlist</li>
-					<li>A single photo topic keyword, such as "mountains"</li>
-					<li>Your IP address and the usual technical connection data, unavoidably, as with any web request</li>
+					<li>Your API key or Strava tokens are stored on your device only — not synced, not sent to us, and excluded from exported settings. A Strava password is only ever typed on Strava's own site.</li>
+					<li>Requests go straight from your browser to the provider, never through our proxy. Trading 212's API covers Invest and Stocks ISA only; SIPP and CFD are not supported.</li>
+					<li>The fitness estimate, streak and weekly trends are the extension's own calculations from your activity data, not official Strava figures, and not health advice. Activity data is rendered and cached on your device and never sent to us.</li>
 				</ul>
-				<p>We rely on legitimate interests — running a feature you switched on, and keeping the service secure. We store none of it: the Worker keeps no request logs, and provider responses are cached at Cloudflare's edge briefly (15 minutes for weather, 5 for prices) so repeat requests share one upstream call. That caches the response, not the requester.</p>
-				<p><strong>What never reaches the proxy:</strong> your Trading 212 or Strava data, any credential or token, your bookmarks, your browsing history, your name or your email.</p>
 
-				<h2>Trading 212 and Strava (optional, read-only)</h2>
-				<ul>
-					<li><strong>Credentials stay local.</strong> A Trading 212 API key you generate yourself, or the Strava tokens from Strava's own sign-in page, are stored on your device only — not synced, not sent to us, and excluded from exported settings. Your Strava password is only ever typed on Strava's own site.</li>
-					<li><strong>Read-only.</strong> Trading 212: your account summary and open positions. Strava: your activities and profile stats. No write scope is requested and no write request is made, so the extension cannot trade, move money, or change anything on either account.</li>
-					<li><strong>Direct.</strong> Both go from your browser straight to the provider, never through our proxy. Trading 212's API covers Invest and Stocks ISA only — SIPP and CFD are not supported.</li>
-					<li><strong>Our figures, not theirs.</strong> The fitness estimate, activity streak and weekly trends are calculated by the extension from your activity data. They are labelled as such, are not official Strava metrics, and are not health advice.</li>
-				</ul>
-				<p>Activity data can reveal information about your health. It is read into your browser, rendered and cached on your device, and never sent to us. Your use of each service remains governed by its own terms and privacy policy.</p>
-
-				<h2>Other connections</h2>
-				<p>These go directly from your browser, so the provider sees your IP address as any website you visit would: CoinGecko for crypto prices, Unsplash or Pexels for photo images, and Google's favicon service for bookmark icons (which is sent each bookmarked address — you can turn icons off in Settings → Appearance).</p>
-
-				<h2>Payment</h2>
-				<p>A one-off £5 purchase handled by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a> on its own checkout. Card details never reach the extension or us. ExtensionPay may hold an email address for your licence, as controller under its own policy; we only use the anonymous licence key stored locally to ask whether this installation has been paid for.</p>
-
-				<h2>Deleting your data</h2>
-				<p>Settings → Privacy disconnects either integration, and has a one-click "Delete all local Personal Dashboard Pro data" control that removes every connection, credential and cached record from your device. It is free for every user. Uninstalling the extension also clears its storage.</p>
+				<h2>Payment, and deleting your data</h2>
+				<p>A one-off £5 purchase through <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a>'s own checkout — card details never reach the extension or us, and ExtensionPay is the controller of any email address it holds for your licence. We only check an anonymous local licence key.</p>
+				<p>Settings → Privacy disconnects either integration and has a one-click "Delete all local Personal Dashboard Pro data" control, free for every user. Uninstalling clears the storage too.</p>
 
 				<h2>What the extension does not do</h2>
 				<ul>
-					<li>No ads, no ad networks, no selling or sharing of personal data.</li>
-					<li>No analytics, telemetry or tracking pixels, and no cookies of its own.</li>
-					<li>No reading of your browsing history, and no content scripts on the sites you visit — the only one runs on ExtensionPay's checkout page, to confirm a purchase.</li>
-					<li>No invented figures: unavailable data is shown as unavailable, and hidden data as hidden.</li>
+					<li>No ads, no selling or sharing of personal data, no analytics or tracking pixels, and no cookies of its own.</li>
+					<li>No reading of your browsing history, and no content scripts on the sites you visit — the only one runs on ExtensionPay's checkout, to confirm a purchase.</li>
+					<li>No invented figures: unavailable data shows as unavailable, hidden data as hidden.</li>
 				</ul>
 				<p>We use Chrome Web Store user data in line with the Chrome Web Store User Data Policy, including its Limited Use requirements.</p>
 
 				<h2>Your rights</h2>
-				<p>Under UK GDPR you can ask to access, correct, erase, restrict or object to the processing of your personal data, and to have it ported. Almost everything here is on your device and already under your control — you can delete all of it yourself with the control above. The only data we receive is the proxy request data described earlier, and because it is tied to no account or identifier we hold, we usually cannot tell which requests were yours.</p>
-				<p>Email <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a> and we will reply within one month. You can also complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>, though we would appreciate the chance to put things right first.</p>
+				<p>Under UK GDPR you can ask to access, correct, erase, restrict, object to or port your personal data. Almost everything is on your device already under your control, and the only data we receive is the proxy request data above — tied to no account we hold, so we usually cannot tell which requests were yours. Email <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a> and we will reply within a month; you can also complain to the <a href="https://ico.org.uk" target="_blank" rel="noopener">ICO</a>.</p>
 
 				<h2>Other points</h2>
 				<ul>
-					<li><strong>Outside the UK:</strong> Cloudflare and the providers named above may process requests on servers abroad, including in the US, under the transfer mechanisms in their own data processing terms.</li>
-					<li><strong>Under 18s:</strong> the extension is not intended for children, and both integrations require an account with the provider under its own age terms.</li>
-					<li><strong>Incidents:</strong> we would report a qualifying breach to the ICO within 72 hours. We hold no dashboard, portfolio, activity or credential data, so an incident on our side could not expose it.</li>
-					<li><strong>Changes:</strong> we update this page when the extension's data handling changes, and revise the date above. If a future version adds accounts, a subscription or server-side storage, this policy will be revised first.</li>
+					<li>Cloudflare and the providers above may process requests outside the UK, including in the US, under the transfer terms in their own data processing agreements.</li>
+					<li>Not intended for under-18s; both integrations need an account with the provider under its own age terms.</li>
+					<li>We revise this page, and the date above, when the extension's data handling changes — and before any version adding accounts, subscriptions or server-side storage.</li>
 				</ul>
-
-				<p><a href="privacy.html">Simple Money Tools site-wide privacy policy</a> — this website, the free Budget Tracker and the free Personal Dashboard extension.</p>
 			</div>
 		</section>
 	</main>
