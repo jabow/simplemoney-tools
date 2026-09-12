@@ -2864,3 +2864,43 @@ main section.section-alt {
     grid-template-columns: 1fr;
   }
 }
+
+/* Privacy-policy data table — the only table on the site, so these are
+   scoped to .legal-content rather than styling <table> globally. The
+   wrapper scrolls instead of letting the table force the page wider than
+   the viewport on a phone; min-width keeps five columns readable inside
+   that scroll rather than collapsing them to unreadable slivers. */
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.legal-content table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+}
+
+.legal-content th,
+.legal-content td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-content thead th {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.legal-content tbody tr:last-child td {
+  border-bottom: none;
+}
