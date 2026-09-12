@@ -2864,3 +2864,145 @@ main section.section-alt {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---- Tool-card badges, tiers and guide figures (2026-09-12) ------------- */
+
+/* Badges used to sit at the top-left of the media, directly over the fake
+   browser/window title bar — at card width the "£5 one-time" pill collided
+   with the frame title and the screenshot behind it, which is what made the
+   price unreadable. They now sit along the bottom edge of the media, clear
+   of the title bar, over a short scrim so any screenshot can pass behind
+   them. */
+.tool-card-media::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4.5rem;
+  background: linear-gradient(to top, rgba(9, 11, 18, 0.85), rgba(9, 11, 18, 0));
+  pointer-events: none;
+}
+
+.tool-card-media.placeholder-media::after { content: none; }
+
+.tool-card-badges {
+  top: auto;
+  bottom: 0.7rem;
+  left: 0.7rem;
+  right: 0.7rem;
+  z-index: 1;
+}
+
+/* The price is the one badge that states a fact rather than a category, so
+   it is filled rather than outlined — at 0.7rem outlined type over a busy
+   screenshot it read as decoration. */
+.badge-price {
+  color: #08131f;
+  background-color: var(--accent);
+  border-color: transparent;
+  font-weight: 800;
+}
+
+/* Free and Pro side by side inside one card, so a reader can compare the
+   tiers without scrolling a long single list. Collapses to one column at
+   phone width. */
+.tier-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.9rem 1.4rem;
+  margin-top: 0.2rem;
+}
+
+.tier-head {
+  margin: 0 0 0.4rem;
+}
+
+.tier.is-pro {
+  border-left: 2px solid rgba(96, 165, 250, 0.35);
+  padding-left: 1rem;
+}
+
+@media (max-width: 32rem) {
+  .tier.is-pro {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 0.8rem;
+  }
+}
+
+.tool-card.is-featured {
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+/* Screenshots inside the written guides. Constrained and framed so a 1280px
+   capture doesn't dominate the column it sits in. */
+.guide-figure {
+  margin: 1rem 0 1.4rem;
+}
+
+.guide-figure img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--bg-alt);
+}
+
+.guide-figure figcaption {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  margin-top: 0.5rem;
+  line-height: 1.55;
+}
+
+.guide-figure-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.guide-figure-row figure { margin: 0; }
+
+/* Tutorial thumbnails can now be real screenshots rather than an icon —
+   the guides they head are about specific screens, and an icon told the
+   reader nothing about which one. */
+.tutorial-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Real product screenshots in the Pro showcase, replacing the hand-drawn
+   mock widgets that used to sit here — those invented figures (a £24,318.52
+   portfolio) implied data the product had never shown anyone. */
+.pro-shot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 2.5rem;
+}
+
+.pro-shot {
+  margin: 0;
+  background: var(--card-gradient);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.pro-shot img {
+  width: 100%;
+  display: block;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+.pro-shot figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.8rem;
+}

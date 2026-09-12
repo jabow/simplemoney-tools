@@ -17,7 +17,7 @@
 
 	<link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
 	<link rel="apple-touch-icon" href="assets/branding/logo-mark.jpg" />
-	<link rel="stylesheet" href="css/styles.css?v=6" />
+	<link rel="stylesheet" href="css/styles.css?v=7" />
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -164,19 +164,51 @@
 						</div>
 					</article>
 
-					<article class="tutorial-card reveal" data-tutorial-card data-tags="coming-soon video dashboard" data-search="dashboard pro trading 212 video coming soon">
+					<article class="tutorial-card reveal" id="pro-upgrade" data-tutorial-card data-tags="dashboard written beginner" data-search="pro upgrade five pounds one-time extensionpay unlock">
 						<div class="tutorial-thumb">
-							<span class="visually-hidden">Placeholder thumbnail — video not yet published</span>
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-							<span class="thumb-label">Coming soon</span>
+							<img src="assets/screenshots/pro-settings-upgrade.png" alt="The Personal Dashboard Pro upgrade screen showing the £5 one-time price" loading="lazy" />
+							<span class="thumb-label">Written guide</span>
 						</div>
 						<div class="tutorial-body">
 							<div class="tutorial-meta">
-								<span class="badge badge-soon">Coming Soon</span>
+								<span class="difficulty difficulty-beginner">Beginner</span>
+								<span>2 min read</span>
 							</div>
-							<h3>Setting up Simple Money Tools Pro</h3>
-							<p>A full walkthrough of Pro setup and Trading 212 connection will be published once Pro is released.</p>
-							<a class="btn btn-ghost btn-sm" aria-disabled="true" href="#" tabindex="-1">Coming Soon</a>
+							<h3>Upgrading to Pro</h3>
+							<p>Where the £5 one-time upgrade lives inside the extension, and what it unlocks.</p>
+							<a class="btn btn-ghost btn-sm" href="#pro-upgrade-guide">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" id="trading212-setup" data-tutorial-card data-tags="dashboard written intermediate" data-search="trading 212 api key read only portfolio connect pro">
+						<div class="tutorial-thumb">
+							<img src="assets/screenshots/pro-portfolio-card.png" alt="The Trading 212 portfolio widget showing value, return and top holdings" loading="lazy" />
+							<span class="thumb-label">Written guide</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-intermediate">Intermediate</span>
+								<span>5 min read</span>
+							</div>
+							<h3>Connecting Trading 212</h3>
+							<p>Generate a read-only API key with the right scopes, and paste it into Connected accounts.</p>
+							<a class="btn btn-ghost btn-sm" href="#trading212-guide">View Tutorial</a>
+						</div>
+					</article>
+
+					<article class="tutorial-card reveal" id="strava-setup" data-tutorial-card data-tags="dashboard written intermediate" data-search="strava oauth client id secret training activity connect pro">
+						<div class="tutorial-thumb">
+							<img src="assets/screenshots/pro-training-card.png" alt="The Strava training widget showing a streak, last activity and weekly trends" loading="lazy" />
+							<span class="thumb-label">Written guide</span>
+						</div>
+						<div class="tutorial-body">
+							<div class="tutorial-meta">
+								<span class="difficulty difficulty-intermediate">Intermediate</span>
+								<span>5 min read</span>
+							</div>
+							<h3>Connecting Strava</h3>
+							<p>Register your own free Strava app, then authorise read-only access from the extension.</p>
+							<a class="btn btn-ghost btn-sm" href="#strava-guide">View Tutorial</a>
 						</div>
 					</article>
 				</div>
@@ -206,12 +238,75 @@
 				<h2 id="dashboard-setup-guide">Installing Personal Dashboard</h2>
 				<ul>
 					<li>Install the extension from the <a href="https://chrome.google.com/webstore/detail/personal-dashboard/fhojkjnciijmaajgikkhciajhpjheokc?hl=en&authuser=0" target="_blank" rel="noopener">Chrome Web Store</a>.</li>
-					<li>Open a new tab — Personal Dashboard replaces Chrome's default new tab page.</li>
-					<li>Open Settings (gear icon, bottom right) to choose a background style and pick which bookmark folder to show as shortcuts.</li>
+					<li>Open a new tab — it replaces Chrome's default new tab page.</li>
+					<li>Open Settings (gear icon, bottom right) to set your name, pick the bookmark folder to show as shortcuts, and choose the interests that pick your background photos.</li>
 				</ul>
+				<figure class="guide-figure">
+					<img src="assets/screenshots/pro-settings-general.png" alt="The General tab of Personal Dashboard settings, showing name, bookmark folder and background interests" loading="lazy" />
+					<figcaption>Settings → General: your name, bookmark folder and the interests that choose your background photos.</figcaption>
+				</figure>
 
 				<h2 id="watchlist-guide">Setting up your watchlist</h2>
-				<p>From Settings → Watchlist, search for a ticker (crypto or stock) and add it. You can reorder tickers by dragging them, and remove any you no longer want to track. Up to 10 tickers are supported in the free version.</p>
+				<p>From Settings → Watchlist, search for a crypto or stock ticker and add it. Drag to reorder, and remove any you no longer track. Up to 10 tickers are supported.</p>
+				<figure class="guide-figure">
+					<img src="assets/screenshots/pro-watchlist-card.png" alt="The watchlist widget showing Bitcoin, Ethereum, Solana, Apple, Microsoft and NVIDIA with prices and 24-hour changes" loading="lazy" />
+					<figcaption>The watchlist on the new tab page, showing price and 24-hour change for each ticker.</figcaption>
+				</figure>
+
+				<h2 id="pro-upgrade-guide">Upgrading to Pro</h2>
+				<p>Pro is an upgrade inside the same extension, not a separate install. Open Settings → Personal Dashboard Pro and use the upgrade button there. It costs £5 once, with no subscription, and unlocks immediately after payment — you don't need to reload the page.</p>
+				<figure class="guide-figure">
+					<img src="assets/screenshots/pro-settings-upgrade.png" alt="The Personal Dashboard Pro settings tab showing the £5 one-time upgrade option" loading="lazy" />
+					<figcaption>Settings → Personal Dashboard Pro. Payment is handled by ExtensionPay on its own checkout page; card details never reach the extension.</figcaption>
+				</figure>
+				<p>Everything free stays free afterwards, and Demo mode lets you see how both integrations look before you pay anything.</p>
+
+				<h2 id="trading212-guide">Connecting Trading 212 (Pro)</h2>
+				<p>Read-only access only — the extension never asks for permission to place trades, modify orders or move money.</p>
+				<ol>
+					<li>In the Trading 212 app or website, go to <strong>Settings → API (Beta)</strong> and click <strong>Generate API key</strong>.</li>
+					<li>Enable the read scopes: Account data, History, History – Orders, History – Transactions, Metadata, Orders – Read, Pies – Read and Portfolio. Add History – Dividends if you want the dividends section. <strong>Leave Orders – Execute and Pies – Write switched off</strong> — those are the only trading-capable scopes, and this extension never uses them.</li>
+					<li>Copy the key and secret. The secret is shown only once, at the moment the key is created.</li>
+					<li>In the extension, open <strong>Settings → Connected accounts</strong>, choose "Add Trading 212 account" and paste both in.</li>
+				</ol>
+				<div class="guide-figure-row">
+					<figure class="guide-figure">
+						<img src="assets/screenshots/guides/t212-step1.png" alt="Trading 212 settings with the API (Beta) section open" loading="lazy" />
+						<figcaption>Trading 212 → Settings → API (Beta).</figcaption>
+					</figure>
+					<figure class="guide-figure">
+						<img src="assets/screenshots/guides/t212-step3a.png" alt="The Trading 212 API key permission list with read-only scopes enabled" loading="lazy" />
+						<figcaption>Enable the read scopes only; leave the two trading scopes off.</figcaption>
+					</figure>
+					<figure class="guide-figure">
+						<img src="assets/screenshots/guides/t212-step5.png" alt="The Add Trading 212 account form in Personal Dashboard settings" loading="lazy" />
+						<figcaption>Paste the key and secret into Connected accounts.</figcaption>
+					</figure>
+				</div>
+				<p class="text-muted" style="font-size:0.9rem;">Trading 212's API covers Invest and Stocks ISA accounts. SIPP and CFD accounts aren't exposed by it and aren't supported.</p>
+
+				<h2 id="strava-guide">Connecting Strava (Pro)</h2>
+				<p>A live Strava connection uses your own free Strava API app, so there's no approval wait. Only read scopes are requested.</p>
+				<ol>
+					<li>Go to <a href="https://www.strava.com/settings/api" target="_blank" rel="noopener">strava.com/settings/api</a> and register a new app — free and instant.</li>
+					<li>In the extension, open <strong>Settings → Connected accounts</strong> and click <strong>Connect Strava (Live)</strong>. It shows the exact Authorization Callback Domain to paste into your Strava app — yours is unique to your install, so it won't match any screenshot.</li>
+					<li>Copy the Client ID and Secret from your Strava app page, paste them into the same form, then confirm access on Strava's own authorisation screen.</li>
+				</ol>
+				<div class="guide-figure-row">
+					<figure class="guide-figure">
+						<img src="assets/screenshots/guides/strava-step1.png" alt="The Strava API application settings page" loading="lazy" />
+						<figcaption>Register a free API app at strava.com/settings/api.</figcaption>
+					</figure>
+					<figure class="guide-figure">
+						<img src="assets/screenshots/guides/strava-step4.png" alt="The Connect Strava Live form in Personal Dashboard settings" loading="lazy" />
+						<figcaption>Paste the Client ID and Secret into Connected accounts.</figcaption>
+					</figure>
+					<figure class="guide-figure">
+						<img src="assets/screenshots/guides/strava-step5.png" alt="Strava's own authorisation screen confirming read access" loading="lazy" />
+						<figcaption>Authorise on Strava's own screen to finish.</figcaption>
+					</figure>
+				</div>
+				<p class="text-muted" style="font-size:0.9rem;">Streaks, weekly trends and the fitness estimate are the extension's own calculations from your activity data — not official Strava metrics, and not health advice.</p>
 			</div>
 		</section>
 
@@ -260,12 +355,12 @@
 						<p>No — install it from the Chrome Web Store and it works immediately. Nothing is required to connect for the free features.</p>
 					</details>
 					<details class="faq-item">
-						<summary>Is Simple Money Tools Pro available yet?</summary>
-						<p>Not yet — it's in active development. Register your interest on the <a href="contact.html#updates">contact page</a> and you'll hear when it's ready, including pricing at that point.</p>
+						<summary>Is Personal Dashboard Pro available yet?</summary>
+						<p>The Pro update is with Chrome for review. It is an upgrade inside the existing extension rather than a separate install, and costs £5 once — no subscription. Install the free extension now and the upgrade appears in Settings when it lands.</p>
 					</details>
 					<details class="faq-item">
-						<summary>Will connecting Trading 212 give Simple Money Tools access to my money?</summary>
-						<p>The planned Trading 212 integration is read-only — it can only read portfolio information Trading 212's API exposes, and cannot place trades or move funds. Full detail will be published in the Pro setup guide and privacy policy once it launches.</p>
+						<summary>Will connecting Trading 212 give access to my money?</summary>
+						<p>No. The integration is read-only: it reads the portfolio information Trading 212 exposes through its API, and cannot place trades, move funds or change your account. You generate the API key yourself and choose its scopes — the two trading-capable ones stay switched off. See the <a href="#trading212-guide">Trading 212 guide</a> and the <a href="personal-dashboard-pro-privacy.html">Pro privacy policy</a>.</p>
 					</details>
 					<details class="faq-item">
 						<summary>Which browsers are supported?</summary>
