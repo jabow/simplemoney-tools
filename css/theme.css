@@ -1,0 +1,228 @@
+/* ============================================================================
+   Simple Money Tools — light/dark theming
+   ----------------------------------------------------------------------------
+   Load AFTER css/styles.css. Nothing in styles.css needs editing.
+
+     <link rel="stylesheet" href="css/styles.css?v=12">
+     <link rel="stylesheet" href="css/theme.css?v=1">
+     <script src="js/theme.js?v=1"></script>   <!-- in <head>, not deferred -->
+
+   How it resolves, in order:
+     1. no choice stored  ->  follows the visitor's operating system
+     2. data-theme="light" / "dark" on <html>  ->  their explicit choice wins
+   The dark palette in styles.css stays the baseline, so if this file fails to
+   load the site still renders exactly as it does today.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. Values styles.css hard-codes, lifted into tokens so the component rules
+      further down can serve both themes. These are the CURRENT dark values —
+      they change nothing on their own.
+   ------------------------------------------------------------------------- */
+:root {
+  --header-bg: rgba(7, 17, 31, 0.66);
+  --ring: rgba(255, 255, 255, 0.05);
+  --chip-bg: #162437;
+  --chip-accent-bg: rgba(77, 212, 191, 0.12);
+  --badge-ink: #08131f;
+  --danger: #e07070;
+  --photo-bg: #eef4f0;
+  --glow-strength: 1;
+  --glow-saturate: 1;
+  --frame-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
+  --frame-ring: rgba(77, 212, 191, 0.16);
+  --win-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  --base-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------------------------------------------------------------
+   2. The light palette.
+      Declared twice on purpose: once for "your OS is set to light and you
+      haven't overridden it", once for "you pressed the button". CSS has no way
+      to share one block between those two conditions — keep them identical.
+   ------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+
+    /* The teal is kept but taken down, because styles.css uses --accent both
+       as a button fill and as small text. 4.75:1 on the darkest surface,
+       5.45:1 for white text on the filled button. The original #4dd4bf
+       survives as --accent-soft for tints. */
+    --accent: #0c7767;
+    --accent-hover: #0a6a5d;
+    --accent-soft: #d3f2eb;
+    --accent-2: #1b66c9;
+    --accent-contrast: #ffffff;
+    --gradient: linear-gradient(135deg, var(--accent-2), var(--accent));
+
+    --bg: #f7f9fb;
+    --bg-alt: #eaf0f5;
+    --card-bg: #ffffff;
+    --card-bg-raised: #ffffff;
+    --card-gradient: linear-gradient(180deg, #ffffff, #fcfdfe);
+    --border: rgba(12, 27, 42, 0.10);
+    --border-strong: rgba(12, 27, 42, 0.20);
+
+    --text: #0c1b2a;
+    --text-muted: #47606f;
+    --text-faint: #566b7c;
+
+    --free: #0c7767;
+    --paid: #1b66c9;
+    --soon: #5b6b7c;
+    --warn: #8a5a08;
+
+    --shadow: 0 1px 2px rgba(12, 27, 42, 0.04), 0 10px 30px -12px rgba(12, 27, 42, 0.16);
+    --shadow-lg: 0 2px 4px rgba(12, 27, 42, 0.05), 0 24px 56px -22px rgba(12, 27, 42, 0.26);
+
+    --header-bg: rgba(247, 249, 251, 0.72);
+    --ring: rgba(12, 27, 42, 0.07);
+    --chip-bg: #e7edf2;
+    --chip-accent-bg: #d3f2eb;
+    --badge-ink: #ffffff;
+    --danger: #b42318;
+    --photo-bg: #eef2f6;
+    --glow-strength: 0.5;
+    --glow-saturate: 0.75;
+    --frame-shadow: 0 30px 70px -30px rgba(12, 27, 42, 0.38);
+    --frame-ring: rgba(12, 119, 103, 0.18);
+    --win-shadow: 0 20px 48px -20px rgba(12, 27, 42, 0.30);
+    --base-shadow: 0 8px 20px -8px rgba(12, 27, 42, 0.28);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --accent: #0c7767;
+  --accent-hover: #0a6a5d;
+  --accent-soft: #d3f2eb;
+  --accent-2: #1b66c9;
+  --accent-contrast: #ffffff;
+  --gradient: linear-gradient(135deg, var(--accent-2), var(--accent));
+
+  --bg: #f7f9fb;
+  --bg-alt: #eaf0f5;
+  --card-bg: #ffffff;
+  --card-bg-raised: #ffffff;
+  --card-gradient: linear-gradient(180deg, #ffffff, #fcfdfe);
+  --border: rgba(12, 27, 42, 0.10);
+  --border-strong: rgba(12, 27, 42, 0.20);
+
+  --text: #0c1b2a;
+  --text-muted: #47606f;
+  --text-faint: #566b7c;
+
+  --free: #0c7767;
+  --paid: #1b66c9;
+  --soon: #5b6b7c;
+  --warn: #8a5a08;
+
+  --shadow: 0 1px 2px rgba(12, 27, 42, 0.04), 0 10px 30px -12px rgba(12, 27, 42, 0.16);
+  --shadow-lg: 0 2px 4px rgba(12, 27, 42, 0.05), 0 24px 56px -22px rgba(12, 27, 42, 0.26);
+
+  --header-bg: rgba(247, 249, 251, 0.72);
+  --ring: rgba(12, 27, 42, 0.07);
+  --chip-bg: #e7edf2;
+  --chip-accent-bg: #d3f2eb;
+  --badge-ink: #ffffff;
+  --danger: #b42318;
+  --photo-bg: #eef2f6;
+  --glow-strength: 0.5;
+  --glow-saturate: 0.75;
+  --frame-shadow: 0 30px 70px -30px rgba(12, 27, 42, 0.38);
+  --frame-ring: rgba(12, 119, 103, 0.18);
+  --win-shadow: 0 20px 48px -20px rgba(12, 27, 42, 0.30);
+  --base-shadow: 0 8px 20px -8px rgba(12, 27, 42, 0.28);
+}
+
+/* An explicit dark choice has to beat a light operating system. */
+:root[data-theme="dark"] { color-scheme: dark; }
+
+/* ---------------------------------------------------------------------------
+   3. Component rules — written once, driven by the tokens above, so they are
+      correct in both themes. Each one replaces a hard-coded value in
+      styles.css that assumed a dark page.
+   ------------------------------------------------------------------------- */
+
+.site-header { background-color: var(--header-bg); }
+
+.tool-card:hover,
+.tutorial-card:hover,
+.social-card:hover { box-shadow: var(--shadow-lg), 0 0 0 1px var(--ring); }
+
+.badge-price,
+.tool-card-badges .badge { color: var(--badge-ink); }
+
+.trust-card-icon { background-color: var(--chip-bg); }
+.trust-card-icon.is-accent { background-color: var(--chip-accent-bg); }
+
+.form-status.is-error,
+.field-error { color: var(--danger); }
+
+.founder-avatar,
+.about-photo-card img { background-color: var(--photo-bg); }
+
+.hero-showcase .browser-frame { box-shadow: var(--frame-shadow), 0 0 0 1px var(--frame-ring); }
+.laptop-frame .window-frame { box-shadow: var(--win-shadow); }
+.laptop-frame-base { box-shadow: var(--base-shadow); }
+
+/* The two ambient glows are bright teal, tuned to bloom against near-black.
+   Rather than redraw them, they are simply dialled back on a light ground. */
+.hero::before,
+.hero-copy::before {
+  opacity: var(--glow-strength);
+  filter: saturate(var(--glow-saturate));
+}
+
+::selection { background: var(--accent-soft); color: var(--text); }
+
+/* ---------------------------------------------------------------------------
+   4. The toggle button. Injected into .nav-inner by js/theme.js — no markup
+      changes needed on any page.
+   ------------------------------------------------------------------------- */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: none;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--bg-alt);
+}
+.theme-toggle svg { width: 1.15rem; height: 1.15rem; display: none; }
+.theme-toggle[data-mode="system"] .icon-system,
+.theme-toggle[data-mode="light"]  .icon-light,
+.theme-toggle[data-mode="dark"]   .icon-dark { display: block; }
+
+/* Placement. .nav-inner is space-between with the brand on the left, so the
+   right-hand group is formed with an auto margin instead. */
+.site-header .nav-inner { justify-content: flex-start; }
+.site-header .nav-links { margin-left: auto; }
+.theme-toggle { order: 5; }
+
+@media (max-width: 860px) {
+  /* .nav-links goes position:fixed here, so the in-flow children are the
+     brand, this button and the hamburger. */
+  .site-header .nav-links { margin-left: 0; }
+  .theme-toggle { order: 0; margin-left: auto; }
+  .site-header .nav-toggle { order: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle { transition: none; }
+}
