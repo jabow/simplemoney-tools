@@ -2773,7 +2773,13 @@ main section.section-alt {
 }
 
 .pro-shot img {
-  width: 100%;
+  /* The two cards are different shapes (the portfolio one is taller), so
+     cap the height and let width follow: they then sit level instead of one
+     column running far past the other. */
+  max-height: 30rem;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
   display: block;
   border-radius: calc(var(--radius) - 4px);
 }
