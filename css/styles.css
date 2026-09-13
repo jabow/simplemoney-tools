@@ -2807,3 +2807,14 @@ main section.section-alt {
   border-color: transparent;
   font-weight: 800;
 }
+
+/* Prev/next between the standalone tutorial pages. */
+.guide-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}

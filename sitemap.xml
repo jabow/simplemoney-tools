@@ -37,4 +37,39 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.4</priority>
 	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-budget-tracker.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-budget-dashboard.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-install-dashboard.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-watchlist.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-pro-upgrade.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-trading-212.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://simplemoney-tools.co.uk/tutorial-strava.html</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.6</priority>
+	</url>
 </urlset>

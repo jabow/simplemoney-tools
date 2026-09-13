@@ -3,15 +3,15 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Personal Dashboard Pro — Privacy Policy — Simple Money Tools</title>
-	<meta name="description" content="Privacy policy for the Personal Dashboard Pro Chrome extension: no account, no server, read-only Trading 212 and Strava integrations, and all data stored locally on your own device." />
-	<link rel="canonical" href="https://simplemoney-tools.co.uk/personal-dashboard-pro-privacy.html" />
+	<title>Upgrading to Pro — Simple Money Tools</title>
+	<meta name="description" content="Where the £5 one-time upgrade lives inside the extension, and what it unlocks." />
+	<link rel="canonical" href="https://simplemoney-tools.co.uk/tutorial-pro-upgrade.html" />
 
-	<meta property="og:type" content="website" />
+	<meta property="og:type" content="article" />
 	<meta property="og:site_name" content="Simple Money Tools" />
-	<meta property="og:title" content="Personal Dashboard Pro — Privacy Policy" />
-	<meta property="og:description" content="No account, no server, no tracking. How the Personal Dashboard Pro Chrome extension handles Trading 212, Strava and everything else." />
-	<meta property="og:url" content="https://simplemoney-tools.co.uk/personal-dashboard-pro-privacy.html" />
+	<meta property="og:title" content="Upgrading to Pro — Simple Money Tools" />
+	<meta property="og:description" content="Where the £5 one-time upgrade lives inside the extension, and what it unlocks." />
+	<meta property="og:url" content="https://simplemoney-tools.co.uk/tutorial-pro-upgrade.html" />
 	<meta property="og:image" content="https://simplemoney-tools.co.uk/assets/branding/logo-full.jpg" />
 	<meta name="twitter:card" content="summary_large_image" />
 
@@ -39,7 +39,7 @@
 			<nav class="nav-links" id="nav-links" aria-label="Primary">
 				<a href="index.html">Home</a>
 				<a href="tools.html">Tools</a>
-				<a href="tutorials.html">Tutorials</a>
+				<a href="tutorials.html" aria-current="page">Tutorials</a>
 				<a href="about.html">About</a>
 				<a href="contact.html">Contact</a>
 
@@ -62,57 +62,28 @@
 
 	<main id="main">
 		<div class="page-hero wrap">
-			<p class="eyebrow">Legal</p>
-			<h1>Personal Dashboard Pro — Privacy Policy</h1>
-			<p>What the Personal Dashboard Pro Chrome extension does, and does not do, with your data.</p>
+			<p class="eyebrow"><a href="tutorials.html">Tutorials</a></p>
+			<h1>Upgrading to Pro</h1>
+			<p>Where the £5 one-time upgrade lives inside the extension, and what it unlocks.</p>
+			<p class="tutorial-meta" style="justify-content:flex-start;">
+				<span class="difficulty difficulty-beginner">Beginner</span>
+				<span>2 min read</span>
+			</p>
 		</div>
 
-		<section>
+		<section class="tight">
 			<div class="wrap legal-content">
-				<p class="legal-meta">Last updated 12 September 2026 · Personal Dashboard Pro 2.0 and later. Published by James at Simple Money Tools (correspondence address on request, United Kingdom), the data controller. Contact: <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a>. Checked against the extension's source code, but not reviewed by a solicitor. For this website and the free tools, see the <a href="privacy.html">site-wide policy</a>.</p>
+				<p>Pro is an upgrade inside the same extension, not a separate install. Open Settings → Personal Dashboard Pro and use the upgrade button there. It costs £5 once, with no subscription, and unlocks immediately after payment — you don't need to reload the page.</p>
+				<figure class="guide-figure">
+					<img src="assets/screenshots/pro-settings-upgrade.png" alt="The Personal Dashboard Pro settings tab showing the £5 one-time upgrade option" loading="lazy" />
+					<figcaption>Settings → Personal Dashboard Pro. Payment is handled by ExtensionPay on its own checkout page; card details never reach the extension.</figcaption>
+				</figure>
+				<p>Everything free stays free afterwards, and Demo mode lets you see how both integrations look before you pay anything.</p>
 
-				<h2>In short</h2>
-				<ul>
-					<li>No account, no sign-up, and no server of ours holding your data.</li>
-					<li>Your settings, bookmarks, watchlist and any connected credential stay in your browser's own storage, on your device. We never receive them.</li>
-					<li>Trading 212 and Strava are optional, off until you connect them, and read-only — the extension cannot trade, move money or change anything on either account.</li>
-					<li>No ads, no sale of data, no analytics or tracking.</li>
-					<li>You can disconnect an integration or delete everything stored locally at any time, free.</li>
-				</ul>
-
-				<h2>What we receive</h2>
-				<p>Weather, share prices and background photos come from providers that require an API key, so those requests pass through a small Cloudflare Worker of ours that adds the key. It has no accounts and no per-user state, and cannot link two requests to the same person. It receives only a location rounded to about a kilometre (rounded in your browser first), the ticker symbols on your watchlist, a photo keyword such as "mountains", and your IP address as any web request carries.</p>
-				<p>We rely on legitimate interests — running features you switched on, and keeping the service secure. We keep no request logs; responses are briefly cached at Cloudflare's edge so repeat requests share one upstream call, caching the response rather than the requester. Your Trading 212 data, Strava data, credentials, bookmarks, browsing history, name and email never reach it.</p>
-				<p>Crypto prices (CoinGecko), photo images, and bookmark icons (Google's favicon service, which is sent each bookmarked address — turn icons off in Settings → Appearance if you would rather it wasn't) are fetched directly by your browser, so those providers see your IP address as any site you visit would.</p>
-
-				<h2>Trading 212 and Strava</h2>
-				<ul>
-					<li>Your API key or Strava tokens are stored on your device only — not synced, not sent to us, and excluded from exported settings. A Strava password is only ever typed on Strava's own site.</li>
-					<li>Requests go straight from your browser to the provider, never through our proxy. Trading 212's API covers Invest and Stocks ISA only; SIPP and CFD are not supported.</li>
-					<li>The fitness estimate, streak and weekly trends are the extension's own calculations from your activity data, not official Strava figures, and not health advice. Activity data is rendered and cached on your device and never sent to us.</li>
-				</ul>
-
-				<h2>Payment, and deleting your data</h2>
-				<p>A one-off £5 purchase through <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a>'s own checkout — card details never reach the extension or us, and ExtensionPay is the controller of any email address it holds for your licence. We only check an anonymous local licence key.</p>
-				<p>Settings → Privacy disconnects either integration and has a one-click "Delete all local Personal Dashboard Pro data" control, free for every user. Uninstalling clears the storage too.</p>
-
-				<h2>What the extension does not do</h2>
-				<ul>
-					<li>No ads, no selling or sharing of personal data, no analytics or tracking pixels, and no cookies of its own.</li>
-					<li>No reading of your browsing history, and no content scripts on the sites you visit — the only one runs on ExtensionPay's checkout, to confirm a purchase.</li>
-					<li>No invented figures: unavailable data shows as unavailable, hidden data as hidden.</li>
-				</ul>
-				<p>We use Chrome Web Store user data in line with the Chrome Web Store User Data Policy, including its Limited Use requirements.</p>
-
-				<h2>Your rights</h2>
-				<p>Under UK GDPR you can ask to access, correct, erase, restrict, object to or port your personal data. Almost everything is on your device already under your control, and the only data we receive is the proxy request data above — tied to no account we hold, so we usually cannot tell which requests were yours. Email <a href="mailto:SimpleMoneyTools1@gmail.com">SimpleMoneyTools1@gmail.com</a> and we will reply within a month; you can also complain to the <a href="https://ico.org.uk" target="_blank" rel="noopener">ICO</a>.</p>
-
-				<h2>Other points</h2>
-				<ul>
-					<li>Cloudflare and the providers above may process requests outside the UK, including in the US, under the transfer terms in their own data processing agreements.</li>
-					<li>Not intended for under-18s; both integrations need an account with the provider under its own age terms.</li>
-					<li>We revise this page, and the date above, when the extension's data handling changes — and before any version adding accounts, subscriptions or server-side storage.</li>
-				</ul>
+				<nav class="guide-nav" aria-label="More tutorials">
+					<a class="btn btn-ghost btn-sm" href="tutorial-watchlist.html">← Setting up your watchlist</a>
+					<a class="btn btn-ghost btn-sm" href="tutorial-trading-212.html">Connecting Trading 212 →</a>
+				</nav>
 			</div>
 		</section>
 	</main>

@@ -17,7 +17,7 @@
 
 	<link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
 	<link rel="apple-touch-icon" href="assets/branding/logo-mark.jpg" />
-	<link rel="stylesheet" href="css/styles.css?v=12" />
+	<link rel="stylesheet" href="css/styles.css?v=13" />
 	<link rel="stylesheet" href="css/theme.css?v=1" />
 	<script src="js/theme.js?v=1"></script>
 </head>
@@ -98,7 +98,7 @@
 							</div>
 							<h3>Getting started with the Budget Tracker</h3>
 							<p>Download the spreadsheet, enable macros/editing if Excel asks, and enter your first month of income and outgoings.</p>
-							<a class="btn btn-ghost btn-sm" href="#budget-tracker-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-budget-tracker.html">View Tutorial</a>
 						</div>
 					</article>
 
@@ -114,7 +114,7 @@
 							</div>
 							<h3>Understanding your dashboard</h3>
 							<p>What "essential vs non-essential" means, how the annual totals are calculated, and how to read the charts.</p>
-							<a class="btn btn-ghost btn-sm" href="#dashboard-reading-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-budget-dashboard.html">View Tutorial</a>
 						</div>
 					</article>
 
@@ -130,7 +130,7 @@
 							</div>
 							<h3>Installing Personal Dashboard</h3>
 							<p>Add the extension from the Chrome Web Store, choose a background style, and pick your bookmark folder.</p>
-							<a class="btn btn-ghost btn-sm" href="#dashboard-setup-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-install-dashboard.html">View Tutorial</a>
 						</div>
 					</article>
 
@@ -146,7 +146,7 @@
 							</div>
 							<h3>Setting up your watchlist</h3>
 							<p>Add up to 10 crypto or stock tickers, reorder them, and remove ones you no longer track.</p>
-							<a class="btn btn-ghost btn-sm" href="#watchlist-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-watchlist.html">View Tutorial</a>
 						</div>
 					</article>
 
@@ -178,7 +178,7 @@
 							</div>
 							<h3>Upgrading to Pro</h3>
 							<p>Where the £5 one-time upgrade lives inside the extension, and what it unlocks.</p>
-							<a class="btn btn-ghost btn-sm" href="#pro-upgrade-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-pro-upgrade.html">View Tutorial</a>
 						</div>
 					</article>
 
@@ -194,7 +194,7 @@
 							</div>
 							<h3>Connecting Trading 212</h3>
 							<p>Generate a read-only API key with the right scopes, and paste it into Connected accounts.</p>
-							<a class="btn btn-ghost btn-sm" href="#trading212-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-trading-212.html">View Tutorial</a>
 						</div>
 					</article>
 
@@ -210,7 +210,7 @@
 							</div>
 							<h3>Connecting Strava</h3>
 							<p>Register your own free Strava app, then authorise read-only access from the extension.</p>
-							<a class="btn btn-ghost btn-sm" href="#strava-guide">View Tutorial</a>
+							<a class="btn btn-ghost btn-sm" href="tutorial-strava.html">View Tutorial</a>
 						</div>
 					</article>
 				</div>
@@ -218,97 +218,6 @@
 				<div class="empty-state" data-tutorials-empty>
 					<p>No tutorials match your search or filter yet. Try clearing the search box.</p>
 				</div>
-			</div>
-		</section>
-
-		<section class="tight" aria-labelledby="guide-content-title" style="border-top:1px solid var(--border);">
-			<div class="wrap legal-content">
-				<h2 class="visually-hidden" id="guide-content-title">Guide details</h2>
-
-				<h2 id="budget-tracker-guide">Getting started with the Budget Tracker</h2>
-				<p>Download the free Budget Tracker from Gumroad and open it in Excel. If Excel shows a yellow "Protected View" or "Enable Content" bar, click through it — this is standard for downloaded spreadsheets, not specific to this file.</p>
-				<ul>
-					<li>Go to the <strong>Income</strong> and <strong>Expenses</strong> tabs and enter your own figures in place of the examples.</li>
-					<li>The <strong>Dashboard</strong> tab updates automatically — no formulas to edit.</li>
-					<li>Save a copy for each month, or reuse one sheet and update it as things change — whichever suits you.</li>
-				</ul>
-
-				<h2 id="dashboard-reading-guide">Understanding your dashboard</h2>
-				<p>"Essential" spending covers the fixed, hard-to-avoid costs you've categorised as such (rent, bills, groceries, etc). "Non-essential" is everything else you've tagged. The split is based entirely on how you categorise each expense row — the tracker doesn't decide this for you.</p>
-				<p>"Left over" is simply income minus total spend, shown both monthly and projected annually based on your monthly figure.</p>
-
-				<h2 id="dashboard-setup-guide">Installing Personal Dashboard</h2>
-				<ul>
-					<li>Install the extension from the <a href="https://chrome.google.com/webstore/detail/personal-dashboard/fhojkjnciijmaajgikkhciajhpjheokc?hl=en&authuser=0" target="_blank" rel="noopener">Chrome Web Store</a>.</li>
-					<li>Open a new tab — it replaces Chrome's default new tab page.</li>
-					<li>Open Settings (gear icon, bottom right) to set your name, pick the bookmark folder to show as shortcuts, and choose the interests that pick your background photos.</li>
-				</ul>
-				<figure class="guide-figure">
-					<img src="assets/screenshots/pro-settings-general.png" alt="The General tab of Personal Dashboard settings, showing name, bookmark folder and background interests" loading="lazy" />
-					<figcaption>Settings → General: your name, bookmark folder and the interests that choose your background photos.</figcaption>
-				</figure>
-
-				<h2 id="watchlist-guide">Setting up your watchlist</h2>
-				<p>From Settings → Watchlist, search for a crypto or stock ticker and add it. Drag to reorder, and remove any you no longer track. Up to 10 tickers are supported.</p>
-				<figure class="guide-figure">
-					<img src="assets/screenshots/pro-watchlist-card.png" alt="The watchlist widget showing Bitcoin, Ethereum, Solana, Apple, Microsoft and NVIDIA with prices and 24-hour changes" loading="lazy" />
-					<figcaption>The watchlist on the new tab page, showing price and 24-hour change for each ticker.</figcaption>
-				</figure>
-
-				<h2 id="pro-upgrade-guide">Upgrading to Pro</h2>
-				<p>Pro is an upgrade inside the same extension, not a separate install. Open Settings → Personal Dashboard Pro and use the upgrade button there. It costs £5 once, with no subscription, and unlocks immediately after payment — you don't need to reload the page.</p>
-				<figure class="guide-figure">
-					<img src="assets/screenshots/pro-settings-upgrade.png" alt="The Personal Dashboard Pro settings tab showing the £5 one-time upgrade option" loading="lazy" />
-					<figcaption>Settings → Personal Dashboard Pro. Payment is handled by ExtensionPay on its own checkout page; card details never reach the extension.</figcaption>
-				</figure>
-				<p>Everything free stays free afterwards, and Demo mode lets you see how both integrations look before you pay anything.</p>
-
-				<h2 id="trading212-guide">Connecting Trading 212 (Pro)</h2>
-				<p>Read-only access only — the extension never asks for permission to place trades, modify orders or move money.</p>
-				<ol>
-					<li>In the Trading 212 app or website, go to <strong>Settings → API (Beta)</strong> and click <strong>Generate API key</strong>.</li>
-					<li>Enable the read scopes: Account data, History, History – Orders, History – Transactions, Metadata, Orders – Read, Pies – Read and Portfolio. Add History – Dividends if you want the dividends section. <strong>Leave Orders – Execute and Pies – Write switched off</strong> — those are the only trading-capable scopes, and this extension never uses them.</li>
-					<li>Copy the key and secret. The secret is shown only once, at the moment the key is created.</li>
-					<li>In the extension, open <strong>Settings → Connected accounts</strong>, choose "Add Trading 212 account" and paste both in.</li>
-				</ol>
-				<div class="guide-figure-row">
-					<figure class="guide-figure">
-						<img src="assets/screenshots/guides/t212-step1.png" alt="Trading 212 settings with the API (Beta) section open" loading="lazy" />
-						<figcaption>Trading 212 → Settings → API (Beta).</figcaption>
-					</figure>
-					<figure class="guide-figure">
-						<img src="assets/screenshots/guides/t212-step3a.png" alt="The Trading 212 API key permission list with read-only scopes enabled" loading="lazy" />
-						<figcaption>Enable the read scopes only; leave the two trading scopes off.</figcaption>
-					</figure>
-					<figure class="guide-figure">
-						<img src="assets/screenshots/guides/t212-step5.png" alt="The Add Trading 212 account form in Personal Dashboard settings" loading="lazy" />
-						<figcaption>Paste the key and secret into Connected accounts.</figcaption>
-					</figure>
-				</div>
-				<p class="text-muted" style="font-size:0.9rem;">Trading 212's API covers Invest and Stocks ISA accounts. SIPP and CFD accounts aren't exposed by it and aren't supported.</p>
-
-				<h2 id="strava-guide">Connecting Strava (Pro)</h2>
-				<p>A live Strava connection uses your own free Strava API app, so there's no approval wait. Only read scopes are requested.</p>
-				<ol>
-					<li>Go to <a href="https://www.strava.com/settings/api" target="_blank" rel="noopener">strava.com/settings/api</a> and register a new app — free and instant.</li>
-					<li>In the extension, open <strong>Settings → Connected accounts</strong> and click <strong>Connect Strava (Live)</strong>. It shows the exact Authorization Callback Domain to paste into your Strava app — yours is unique to your install, so it won't match any screenshot.</li>
-					<li>Copy the Client ID and Secret from your Strava app page, paste them into the same form, then confirm access on Strava's own authorisation screen.</li>
-				</ol>
-				<div class="guide-figure-row">
-					<figure class="guide-figure">
-						<img src="assets/screenshots/guides/strava-step1.png" alt="The Strava API application settings page" loading="lazy" />
-						<figcaption>Register a free API app at strava.com/settings/api.</figcaption>
-					</figure>
-					<figure class="guide-figure">
-						<img src="assets/screenshots/guides/strava-step4.png" alt="The Connect Strava Live form in Personal Dashboard settings" loading="lazy" />
-						<figcaption>Paste the Client ID and Secret into Connected accounts.</figcaption>
-					</figure>
-					<figure class="guide-figure">
-						<img src="assets/screenshots/guides/strava-step5.png" alt="Strava's own authorisation screen confirming read access" loading="lazy" />
-						<figcaption>Authorise on Strava's own screen to finish.</figcaption>
-					</figure>
-				</div>
-				<p class="text-muted" style="font-size:0.9rem;">Streaks, weekly trends and the fitness estimate are the extension's own calculations from your activity data — not official Strava metrics, and not health advice.</p>
 			</div>
 		</section>
 
@@ -362,7 +271,7 @@
 					</details>
 					<details class="faq-item">
 						<summary>Will connecting Trading 212 give access to my money?</summary>
-						<p>No. The integration is read-only: it reads the portfolio information Trading 212 exposes through its API, and cannot place trades, move funds or change your account. You generate the API key yourself and choose its scopes — the two trading-capable ones stay switched off. See the <a href="#trading212-guide">Trading 212 guide</a> and the <a href="personal-dashboard-pro-privacy.html">Pro privacy policy</a>.</p>
+						<p>No. The integration is read-only: it reads the portfolio information Trading 212 exposes through its API, and cannot place trades, move funds or change your account. You generate the API key yourself and choose its scopes — the two trading-capable ones stay switched off. See the <a href="tutorial-trading-212.html">Trading 212 guide</a> and the <a href="personal-dashboard-pro-privacy.html">Pro privacy policy</a>.</p>
 					</details>
 					<details class="faq-item">
 						<summary>Which browsers are supported?</summary>
