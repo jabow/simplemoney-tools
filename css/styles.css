@@ -2790,3 +2790,10 @@ main section.section-alt {
   line-height: 1.6;
   margin-top: 0.8rem;
 }
+
+/* Card screenshots are wide (1916x906) and the media box is short, so a
+   centred crop showed a thin band from the middle of the dashboard. Anchor
+   to the top, where the greeting and the cards are. */
+.tool-card-media img {
+  object-position: top center;
+}
