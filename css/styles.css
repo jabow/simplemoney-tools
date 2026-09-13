@@ -2797,3 +2797,13 @@ main section.section-alt {
 .tool-card-media img {
   object-position: top center;
 }
+
+/* Every badge sitting over a card screenshot gets the same filled pill,
+   whatever it says — an outlined "Free" next to a filled price badge read
+   as two different kinds of label rather than the same one. */
+.tool-card-badges .badge {
+  color: #08131f;
+  background-color: var(--accent);
+  border-color: transparent;
+  font-weight: 800;
+}
