@@ -2,27 +2,27 @@
 <!-- PLACEHOLDER: URLs assume production deployment at https://simplemoney-tools.co.uk/ — update if the final domain differs. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://simplemoney-tools.co.uk/index.html</loc>
+		<loc>https://simplemoney-tools.co.uk/</loc>
 		<changefreq>weekly</changefreq>
 		<priority>1.0</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tools.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tools</loc>
 		<changefreq>weekly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorials.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorials</loc>
 		<changefreq>weekly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/about.html</loc>
+		<loc>https://simplemoney-tools.co.uk/about</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/contact.html</loc>
+		<loc>https://simplemoney-tools.co.uk/contact</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
@@ -33,47 +33,47 @@
 		noindex), this page must not be hidden from crawlers.
 	-->
 	<url>
-		<loc>https://simplemoney-tools.co.uk/personal-dashboard-pro-privacy.html</loc>
+		<loc>https://simplemoney-tools.co.uk/personal-dashboard-pro-privacy</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.4</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-budget-tracker.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-budget-tracker</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-budget-dashboard.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-budget-dashboard</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-install-dashboard.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-install-dashboard</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-watchlist.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-watchlist</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-pro-upgrade.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-pro-upgrade</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-trading-212.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-trading-212</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/tutorial-strava.html</loc>
+		<loc>https://simplemoney-tools.co.uk/tutorial-strava</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>https://simplemoney-tools.co.uk/links.html</loc>
+		<loc>https://simplemoney-tools.co.uk/links</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>

@@ -43,3 +43,32 @@ RedirectMatch 404 (?i)/\.git
 		Deny from all
 	</IfModule>
 </Files>
+
+# ---------------------------------------------------------------------------
+# Clean URLs: /links instead of /links.html
+#
+# Two halves, and both are needed. The rewrite serves page.html when someone
+# asks for /page, so the extensionless URL works. The redirect sends the old
+# /page.html to /page once, so a page is not reachable at two addresses —
+# which search engines treat as duplicate content, and which would make the
+# canonical tags disagree with the URL in the address bar.
+#
+# The redirect matches the literal request line rather than the rewritten
+# path, otherwise the rewrite below would feed it back into itself and loop.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# /index.html (or /some/index.html) -> the directory itself
+	RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+	RewriteRule ^ /%1 [R=301,L]
+
+	# /page.html -> /page
+	RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+	RewriteRule ^ /%1 [R=301,L]
+
+	# /page -> page.html, only when that file actually exists
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME}\.html -f
+	RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
