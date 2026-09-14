@@ -16,3 +16,7 @@ desktop.ini
 
 # Logs
 *.log
+
+# Scratch output from AI sessions — this repo root is the web root, so
+# anything committed here is publicly fetchable.
+Claude outputs/
