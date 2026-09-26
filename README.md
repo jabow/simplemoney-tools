@@ -170,30 +170,23 @@ filename in the HTML (`<img src="assets/screenshots/...">`), so:
 
 ## Branding assets
 
-Copied from `BCA_TECH Dropbox\James Bowen\_James\Shared Personal\Simple Money
-Tools\Branding` (originals untouched):
+The mark is **Hazel** — a red squirrel in profile holding a £ coin, on a night-navy disc
+(chosen 26 Sep 2026). Everything lives under `assets/branding/hazel/rust/` — read its `README.md`
+for the palette and rules. What the site uses:
 
-- `assets/branding/logo-mark.jpg` — icon-only mark (from `Logo1.jpg`), used
-  in the nav, footer and as the source for `apple-touch-icon`.
-- `assets/branding/logo-full.jpg` — icon + wordmark (from `ZMg5g.jpg`), used
-  on the About page and as the Open Graph share image.
-- `assets/branding/favicon.svg` — **hand-authored**, not from the branding
-  folder. No transparent/square export of the real logo existed to use as a
-  crisp favicon, so this is a simplified SVG recreation in the brand's
-  accent colours. Replace with a proper exported favicon from the real logo
-  when one is available (see **Known limitations**).
-- `assets/branding/dashboard-extension-icon.png` — the real Personal
-  Dashboard Chrome extension icon (from
-  `Personal-Dashboard/icons/icon128.png`).
-- `assets/screenshots/budget-tracker-dashboard*.png` — real Budget Tracker
-  dashboard screenshots (from the Branding folder).
-- `assets/screenshots/dashboard-pro-*.jpg` — real Personal Dashboard Pro
-  Chrome Web Store screenshots (from `Personal-Dashboard-Pro/store-assets/`;
-  these use placeholder demo data — "Alex", sample prices — not a real
-  user's data).
+- `svg/hazel-rust-night.svg` — nav and footer mark, founder avatar, About and Links page logo.
+- `favicon/hazel-rust-favicon.svg` + `favicon/favicon.ico` — the favicon (a heavier redraw for
+  16/32 px; 48 px is the master).
+- `png/hazel-rust-night-180.png` — `apple-touch-icon`; `png/hazel-rust-night-512.png` — JSON-LD logo.
+- `social/og-image-hazel.png` — Open Graph share image (1200×630). Web Store tile/marquee and the
+  Gumroad cover sit beside it.
+- `lockup/` — Hazel + "Simple Money Tools" wordmark (Spectral SemiBold outlined), horizontal and
+  stacked, light and dark.
+- `extension/icon-{16,32,48,128}.png` — Chrome extension icon set (copy into the extension repo).
 
-The `You Tube Banner.png` and everything under the Branding folder's
-`not used/` subfolder were deliberately **not** used, per their naming.
+Superseded marks (chart-arrow, Medallion, pastel squirrel v1) are in `assets/branding/archive/`
+— see `ARCHIVE-README.md` there. `assets/screenshots/` holds the product screenshots
+(Budget Tracker dashboard; Personal Dashboard Pro Web Store shots with placeholder demo data).
 
 ## The two privacy policies
 
