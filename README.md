@@ -171,7 +171,7 @@ filename in the HTML (`<img src="assets/screenshots/...">`), so:
 ## Branding assets
 
 The mark is **Hazel** — a red squirrel in profile holding a £ coin, on a night-navy disc
-(chosen 26 Sep 2026). Everything lives under `assets/branding/hazel/rust/` — read its `README.md`
+(chosen 26 Sep 2026). Everything lives under `assets/branding/` — read its `README.md`
 for the palette and rules. What the site uses:
 
 - `svg/hazel-rust-night.svg` — nav and footer mark, founder avatar, About and Links page logo.
