@@ -10,7 +10,8 @@ no gradients. The £ is a Nunito ExtraBold glyph outlined (cap height 80 on the 
 | `svg/hazel-rust-night.svg` | **Master.** Faces right (toward the username on Instagram). |
 | `svg/hazel-rust-night-left.svg` | Mirrored, for placements where the mark sits right of text. |
 | `svg/hazel-rust-mark-nodisc.svg` | Transparent, no disc — site header, wordmark lockup, light grounds. |
-| `instagram/hazel-avatar-rust-night-{1080,320}.png` | Instagram avatar (upload the 1080). Left-facing alternates alongside. |
+| `instagram-3d/hazel-3d-teal-{1080,320}.png` | **Instagram avatar (current, 29 Sep 2026)** — 3D toy-style render, cat mouth + head tilt, teal ground. Night-ground alternate and the Blender script beside it; see `instagram-3d/README-3D.md`. |
+| `instagram/hazel-avatar-rust-night-{1080,320}.png` | Flat Instagram avatar (superseded by the 3D one). Left-facing alternates alongside. |
 | `png/hazel-rust-night-{512,256,180,128,96,48,32,16}.png` | Icon and apple-touch-icon sizes from the master. Don't use the 16/32 here for favicons — use `favicon/`. |
 | `favicon/hazel-rust-favicon.svg`, `favicon/hazel-rust-favicon-{16,32,48}.png`, `favicon/favicon.ico` | **Favicon.** The SVG is a heavier small-size redraw (navy disc, rust head + body, dark-rust tail, brass coin dot, no £); the .ico holds 16 + 32 from it and 48 from the master. |
 | `extension/icon-{16,32,48,128}.png` | Chrome extension icon set — 16/32 from the favicon redraw, 48/128 from the master. Copy into the extension repo. |
