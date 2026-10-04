@@ -1,0 +1,68 @@
+# Puts this repo on its website every time main is pushed.
+#
+# Why this and not Hostinger's own GitHub link: Hostinger can be linked to
+# one GitHub owner at a time, and that is the goat-online organisation.
+# Linking it to this personal account as well cuts every GOAT site off
+# (found 2026-10-03). So this repo uploads itself over FTP instead.
+#
+# It needs three secrets, set once in GitHub under
+# Settings > Secrets and variables > Actions:
+#
+#   FTP_SERVER     the "FTP IP" from hPanel > Files > FTP Accounts. The
+#                  number only, without ftp:// in front. Not the domain
+#                  name: that goes through Hostinger's CDN, which does not
+#                  take FTP.
+#   FTP_USERNAME   the FTP username from the same page
+#   FTP_PASSWORD   the FTP password ("Change FTP password" on that page)
+#
+# What it does and does not do:
+#   - Uploads only files that changed since the last run. It keeps a list of
+#     what it has uploaded in the state file named below, on the server.
+#   - Removes a file from the server only if this workflow uploaded it and
+#     it has since been deleted from the repo. Files that are on the server
+#     but not in the repo (a config file, say) are never touched.
+#   - Files in .gitignore are not in the repo, so they are never uploaded.
+#
+# To run it by hand: the Actions tab > Deploy to Hostinger > Run workflow.
+
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One upload at a time. A second push waits for the first to finish.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Get the repo
+        uses: actions/checkout@v6
+
+      # Pinned to the exact commit of release v4.4.0, so a later change to
+      # the action cannot run with the FTP password without us choosing it.
+      - name: Upload changed files
+        uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # ftps is FTP with the password and files encrypted on the way.
+          protocol: ftps
+          # The folder Hostinger serves this site from, counted from where the
+          # FTP login opens. Must end with a slash.
+          server-dir: domains/simplemoney-tools.co.uk/public_html/
+          state-name: .deploy-state-1f8323c332.json
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
