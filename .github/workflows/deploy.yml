@@ -60,7 +60,7 @@ jobs:
           protocol: ftps
           # The folder Hostinger serves this site from, counted from where the
           # FTP login opens. Must end with a slash.
-          server-dir: domains/simplemoney-tools.co.uk/public_html/
+          server-dir: ./
           state-name: .deploy-state-1f8323c332.json
           exclude: |
             **/.git*
